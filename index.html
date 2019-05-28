@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>WebPanel</title>
+
+    <!-- CSS Dependencies -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/shards.min.css">
+
+</head>
+
+<body>
+
+
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script src="js/shards.min.js"></script>
+
+<style>
+
+  .menu {
+    position: fixed;
+     top: 0;
+     left: 0;
+    width: 100%;
+    height: 40px;
+    background-color: grey;
+  }
+
+  .leftbar {
+    position: fixed;
+    background-color: blue;
+    top: 40px;
+    left: 0px;
+    width: 250px;
+    height: 100%;
+  }
+	 .manualbar {
+      position: fixed;
+      width: 250px;
+      height: 417px;
+      top: 40px;
+      left: 0;
+      background-color: #696969;
+    
+    }
+    .manualon {
+      position: absolute;
+      padding: 0px;
+      margin: 0px;  
+      top: 0px;
+      left: 5px;
+      height: 30px;
+      width: 245px;
+      color: black;
+    }
+
+    .axis {
+      position: absolute;
+      top:40px;
+      width: 250px;
+      height: 190px;
+      background-color: #D3D3D3;
+    }
+
+    .axis>p {
+      position: absolute;
+      font-size: 18px;
+      color: black;
+      top:5px;
+      left: 20px;
+
+    }
+
+	 .btY,.btZ,.btx,.bty,.btz,.btX,.btS, .btEnter {
+    text-align: center;
+     height: 35px;
+      width: 35px;
+      padding: 2px;
+   }
+    .btY {
+      position: absolute;
+      top: 30px;
+      left: 55px;
+      
+    }
+    .btZ {
+      position: absolute;
+      top: 30px;
+      left: 145px;
+      
+    }
+    .btx {
+      position: absolute;
+      top: 70px;
+      left: 15px;
+      
+
+    }
+    .btS {
+      position: absolute;
+      top: 70px;
+      left: 55px;
+      
+
+    }
+    .btX {
+      position: absolute;
+      top: 70px;
+      left: 95px;
+      
+    }
+    .bty {
+      position: absolute;
+      top: 110px;
+      left: 55px;
+     
+    }
+    .btz {
+      position: absolute;
+      top: 110px;
+      left: 145px;
+ 
+    }
+    .homeall,.touchoff {
+      position: absolute;
+      padding: 1px;
+      width: 70px;
+      height: 30px;
+    }
+
+    .homeall {
+      top: 150px;
+      left: 25px;
+    }
+    .touchoff {
+      top: 150px;
+      left: 110px;
+    }
+
+    
+    .spindle {
+      position: absolute;
+      top: 230px;
+      left: 0px;
+      width: 250px;
+      height: 37px;
+      background-color: #C0C0C0;
+    }
+    .spindle>p {
+      position: absolute;
+      color: black;
+      top: 3px;
+      left: 20px;
+      font-size: 18px;
+
+    }
+    .run {
+      position: absolute;
+      padding: 2px;
+      font: bold;
+      top: 6px;
+      left: 90px;
+      width: 65px;
+      height: 25px;
+    }
+    .stop {
+      position: absolute;
+      padding: 2px;
+      top: 6px;
+      left: 165px;
+      width: 65px;
+      height: 25px;
+    }
+    .parametr {
+      position: absolute;
+      top: 267px;
+      left: 0px;
+      width: 250px;
+      height: 150px;
+      background-color: #A9A9A9;
+    }
+
+    .feedoverride {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 250px;
+      height: 30px;
+      background-color: #F0F8FF;
+    }
+    .rapidoverride {
+      position: absolute;
+      top: 30px;
+      left: 0;
+      width: 250px;
+      height: 30px;
+      background-color: #F0FFFF;
+    }
+    .feedoverride>p,.spindleoverride>p,.rapidoverride>p, .jogspeed>p, .maxvelocity>p {
+      position: absolute;
+      top: 3px;
+      left: 2px;
+      color: black;
+      font-size: 13px;
+      font: bold;
+    }
+    .value {
+      position: absolute;
+      top: 3px;
+      left: 95px;
+      height: 24px;
+      width: 45px;
+      border: 1px solid black ;
+      background-color: #FFFFFF;
+      text-align: center;
+      font-size: 13px;
+    }
+    .slider {
+      position: absolute;
+      top: 0px;
+      left: 145px;
+      width: 90px;
+      height: 30px;
+
+    }
+
+    .custom-slider-input {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;   
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    border: 1px solid black;
+    }
+
+    .custom-slider-input::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%; 
+        background: #BDB76B;
+        cursor: pointer;
+        border: dotted #8B4513;
+    }
+
+    .custom-slider-input::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #BDB76B;
+        cursor: pointer;
+    }
+        
+
+    .custom-slider-input {
+      position: absolute;
+      top: 10px;
+      width: 95px;
+    }
+    .spindleoverride {
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 250px;
+      height: 30px;
+      background-color: #F0FFFF;
+    }
+      .jogspeed {
+      position: absolute;
+      top: 90px;
+      left: 0;
+      width: 250px;
+      height: 30px;
+      background-color: #F0F8FF;
+      }
+      .maxvelocity {
+      position: absolute;
+      top: 120px;
+      left: 0;
+      width: 250px;
+      height: 30px;
+      background-color: #F0FFFF;
+      }
+    
+    .noUi-target {
+      margin: 0px;
+    }
+  .step {
+    position: absolute;
+    top: 3px;
+    left: 160px;
+  } 
+  .steps {
+    font-size: 12px;
+    border-radius: 3px;
+  }
+  .mdibar {
+    position: absolute;
+    top: 417px;
+    left: 0;
+    width: 250px;
+    height: 337px;
+    background-color: #F0FFF0;
+  }
+  .mdion {
+    position: absolute;
+    top: 0px;
+    left: 5px;
+    width: 245px;
+    height: 30px;
+    color: black;
+
+
+  }
+  .history {
+    position: absolute;
+    top: 30px;
+    left: 0px; 
+    width: 250px;
+    height: 150px;
+  }
+  .texthistory {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 240px;
+    height: 140px;
+    font-size: 12px;
+  }
+  .entermdi {
+    position: absolute;
+    top: 180px;
+    left: 0;
+    width: 250px;
+    height: 50px;
+  }
+  #mditext {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 200px;
+    height: 25px;
+    font-size: 12px;
+  }
+  .btEnter {
+    position: absolute;
+    top: 5px;
+    left: 210px;
+    width: 35px;
+    height: 25px;
+  }
+  .commands {
+    position: absolute;
+    top: 230px;
+    left: 0;
+    width: 250px;
+    height: 50px;
+  }
+  .G_command {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 240px;
+    height: 50px;
+    font-size: 12px;
+  }
+ .btn-sm {
+  
+  height: 40px;
+  background-color: #4682B4;
+  text-align: center;
+ }
+
+
+.rightbar {
+  position: fixed;
+  top: 41px;
+  right: 0px;
+  width: 325px;
+  height: 743px;
+  background-color: #f0f0f0;
+
+
+}
+.lookaxis {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 325px; 
+  height: 200px;
+  background-color: white;
+}
+
+.central {
+  position: fixed;
+  top: 40px;
+  left: 250px;
+  right: 325px;
+  height: 743px;
+  background-color: #0f0f0ddd;
+}
+.visualisation {
+  position: absolute;
+  top: 5px;
+  left: 5px; 
+  right: 5px;
+  height: 400px;
+  background-color: #0434dfff;
+}
+
+.lookaxis>p {
+  position: absolute; 
+  top: 3px;
+  left: 5px;
+  font-size: 18px;
+
+  color: black;
+
+}
+#workcoordinates {
+  position: absolute;
+  top: 30px;
+  left: 10px;
+  width: 305px;
+  height: 70px;
+  color: black;
+  background-color: white;
+}
+
+#workX, #workY, #workZ {
+  position: absolute;
+  top: 30px;
+  width: 90px;
+  height: 30px;
+  border: 1px solid black;
+  text-align: center;
+  
+
+}
+#workX {
+  left: 5px;
+}
+#workY {
+  left: 100px;
+}
+#workZ {
+  left: 195px;
+}
+
+#machinecoordinates {
+  position: absolute;
+  top: 95px;
+  left: 10px;
+  width: 305px;
+  height: 70px;
+  color: black;
+  background-color: white;
+}
+
+#machineX, #machineY, #machineZ {
+  position: absolute;
+  top: 30px;
+  width: 90px;
+  height: 30px;
+  border: 1px solid black;
+  text-align: center;
+  
+
+}
+#machineX {
+  left: 5px;
+}
+#machineY {
+  left: 100px;
+}
+#machineZ {
+  left: 195px;
+}
+
+#auto {
+  position: absolute;
+  top: 200px;
+  left: 0;
+  width: 325px;
+  height: 250px;
+  background-color: #5040000d;
+}
+
+.autoon {
+  position: absolute;
+  margin: 0px;
+    top: 0px;
+    left: 5px;
+    width: 245px;
+    height: 30px;
+    color: black;
+    font-size: 18px;
+
+}
+.inputfile {
+  position: absolute;
+  top: 35px;
+  right: 5px;
+  width: 315px;
+  height: 30px;
+}
+#logcode {
+  position: absolute;
+  top: 410px;
+  left: 7px;
+  right: 5px;
+  height: 295px;
+}
+
+</style>
+
+<div class="menu">
+    <div class="btn-group" data-toggle="buttons">
+  <label class="btn btn-primary active btn-sm" for="option1">
+    <input type="radio" name="btnGroupOption1" id="option1" autocomplete="off" checked=""> Graver
+  </label>
+  <label class="btn btn-primary btn-sm" for=>
+    <input type="radio" name="btnGroupOption1" id="option2" autocomplete="off"> Laser
+  </label>
+  <label class="btn btn-primary btn-sm" for="option3">
+    <input type="radio" name="btnGroupOption1" id="option3" autocomplete="off"> 3D Printer
+  </label>
+</div>
+
+
+
+
+</div>
+<div class="central">
+  <div class="visualisation">
+    
+  </div>
+  <div class="bottom">
+    <div class="log">
+
+      <textarea name="" id="logcode" cols="129"  readonly > history
+        </textarea>
+      
+    </div>
+  </div>
+
+</div>
+<div class="rightbar">
+<div class="lookaxis">
+
+  <p>State</p>
+
+<div id="workcoordinates">
+  <p>Work Coordinates:</p>
+  <div id="workX">X_data</div>
+  <div id="workY">Y_data</div>
+  <div id="workZ">Z_data</div>
+</div>
+<div id="machinecoordinates">
+  <p>Machine Coordinates:</p>
+  <div id="machineX">X_data</div>
+  <div id="machineY">Y_data</div>
+  <div id="machineZ">Z_data</div>
+</div>
+
+
+
+</div>
+
+<div id="auto">
+
+<div class="autoon custom-control custom-toggle my-1">
+        <input type="checkbox" id="customToggle3" name="customToggle3" class="custom-control-input">
+        <label class="custom-control-label" for="customToggle3">Auto </label>
+      </div>
+  
+<div class="inputfile custom-file mb-3">
+  <input type="file" class="custom-file-input" id="customFile">
+  <label class="custom-file-label" for="customFile">Загрузить УП в форматах .txt, .nc</label>
+</div>
+
+</div>
+
+</div>
+
+<div class="leftbar">
+  
+
+
+
+	<div class="manualbar">
+			
+  <div class=" manualon custom-control custom-toggle my-1">
+  <input type="checkbox" id="customToggle2" name="customToggle2" class="custom-control-input">
+  <label class="custom-control-label" for="customToggle2">Manual Control</label>
+</div>
+
+<div class="axis" >
+  <p>Axis</p>
+  
+  <div class="step">
+    <select name="" id="" class="steps">
+      <option value="">Continuous</option>
+      <option value="5">5mm</option>
+      <option value="1">1mm</option>
+      <option value="0.5">.5mm</option>
+      <option value="0.1">.1mm</option>
+      <option value="0.05">.05mm</option>
+      <option value="0.01">.01mm</option>
+      <option value="0.005">.005mm</option>
+    </select>
+  </div>
+
+		<button type = "button" class="btY btn btn-light" onclick="btnY()">Y+</button>
+		<button type = "button" class="btZ btn btn-light" onclick="btnZ()"> Z+</button>
+		<button type = "button" class="btx btn btn-light" onclick="btnx()"> X-</button>
+		<button type = "button" class="btS btn btn-danger" onclick="btnS()"> Stop</button>
+		<button type = "button" class="btX btn btn-light" onclick="btnX()"> X+</button>
+		<button type = "button" class="bty btn btn-light" onclick="btny()"> Y-</button>
+		<button type = "button" class="btz btn btn-light" onclick="btnz()"> Z-</button>
+
+    <button type = "button" class="homeall btn btn-light" onclick="btnhomeall()"> Home All</button>
+    <button type = "button" class="touchoff btn btn-light" onclick="btntouchoff()"> Touch Off</button>
+
+		</div>
+<div class="spindle">
+  <p>Spindle</p>
+    <button type="button" class="run btn btn-success">Run</button>
+    <button type="button" class="stop btn btn-danger">Stop</button>
+</div>
+
+<div class="parametr">
+  <div class="feedoverride">
+      <p>Feed Override</p>
+      <div class="value" id="FOout"> 50 </div>
+      <div class='slider'>
+        <input type="range" class='custom-slider-input' name="custom-slider-value" min="1" max="120" id="FOslider" 
+        oninput="replace(event)" value="50">
+      </div>
+  </div>
+  <div class="rapidoverride">
+         <p>Rapid Override</p>
+        <div class="value" id="ROout"> 50 </div>
+      <div class='slider'>
+          <input type="range" class='custom-slider-input' name="custom-slider-value" min="1" max="100" id="ROslider" 
+       oninput="replace(event)" value="50">
+      </div>
+    </div>
+  <div class="spindleoverride">
+       <p>Spindle Override</p>
+      <div class="value" id="SOout"> 50 </div>
+    <div class='slider'>
+        <input type="range" class='custom-slider-input' name="custom-slider-value" min="1" max="120" id="SOslider" 
+     oninput="replace(event)" value="50">
+    </div>
+  </div>
+  
+  
+  <div class="jogspeed">
+     <p>Jog Speed</p>
+      <div class="value" id="JSout"> 1200 </div>
+    <div class='slider'>
+        <input type="range" class='custom-slider-input' name="custom-slider-value" min="1" max="3000" id="JSslider" 
+     oninput="replace(event)" value="1200">
+    </div>
+  </div>
+  <div class="maxvelocity">
+     <p>Max Velocity</p>
+      <div class="value" id="MVout"> 700 </div>
+    <div class='slider'>
+        <input type="range" class='custom-slider-input' name="custom-slider-value" min="1" max="3000" id="MVslider"  oninput="replace(event)" value="700">
+    </div>
+  </div>
+</div>
+
+	</div>
+<div class="mdibar">
+  
+      <div class=" mdion custom-control custom-toggle my-1">
+        <input type="checkbox" id="customToggle1" name="customToggle1" class="custom-control-input">
+        <label class="custom-control-label" for="customToggle1">MDI </label>
+      </div>
+      <div class="history">
+        <textarea name="" id="" cols="30" rows="4" readonly class="texthistory"> history
+        </textarea>
+      </div>
+      <div class="entermdi">
+        <input type="text" id="mditext" >
+        <button type = "button" class="btEnter btn btn-outline-success" onclick="btnEnter()"> Go</button>
+
+      </div>
+      <div class="commands">
+        <textarea name="" id="" cols="30" rows="2" readonly class="G_command">command</textarea>
+</div>
+</div>
+
+
+<script>
+var btY  = document.querySelector('.btY'),
+    btZ = document.querySelector('.btZ'),
+    btx = document.querySelector('.btx'),
+    btS = document.querySelector('.btS'),
+    btX = document.querySelector('.btX'),
+    bty = document.querySelector('.bty'),
+    btz = document.querySelector('.btz'),
+    websocket = new WebSocket("ws://192.168.100.245:8889/ws");
+function btnY() {
+                websocket.send(JSON.stringify({action: 'btY',type: 'button'}));
+            }
+function btnZ() {
+                websocket.send(JSON.stringify({action: 'btZ',type: 'button'}));
+            }
+function btnx() {
+                websocket.send(JSON.stringify({action: 'btx',type: 'button'}));
+            }
+function btnS() {
+                websocket.send(JSON.stringify({action: 'btS',type: 'button'}));
+            }
+function btnX() {
+                websocket.send(JSON.stringify({action: 'btX',type: 'button'}));
+            }
+function btny() {
+                websocket.send(JSON.stringify({action: 'bty',type: 'button'}));
+            }
+function btnz() {
+                websocket.send(JSON.stringify({action: 'btz',type: 'button'}));
+                
+            }
+
+function replace(event) {
+  
+ var slider = event.target;
+ console.log(slider.id)
+ console.log(slider)
+ if (slider.id == "FOslider") {
+  var output = document.getElementById("FOout");
+ }
+  if (slider.id == "SOslider") {
+  var output = document.getElementById("SOout");
+ }
+  if (slider.id == "JSslider") {
+  var output = document.getElementById("JSout");
+ }
+  if (slider.id == "MVslider") {
+  var output = document.getElementById("MVout");
+ }
+ if (slider.id == "ROslider") {
+  var output = document.getElementById("ROout");
+ }
+  output.innerHTML = slider.value;
+}
+
+
+
+         
+</script>
+</body>
+</html>
