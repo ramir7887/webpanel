@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Bochaeva</title>
+
+   
+
+</head>
+
+<body>
+	<style>
+		
+	</style>
+<div align="center">
+<button id="tab"  onclick="change()">Нажми меня!</button>
+</div>
+<div id="image" align="center">
+	<img id = "imag" src="C:\Users\blevo\Desktop\N7cKYAOfCfw.jpg" alt="Some text" height="300" width="300">
+	
+</div>
+<script type="text/javascript">
+	var i = 1;
+	function change(){
+		
+
+		var imagg = document.getElementById("imag");
+		if (i === 1) {
+				imagg.src = "C:\\Users\\blevo\\Desktop\\aa2d725e-13c4-11e7-9538-fd5f746a2130.png";
+			i++;
+			return 0;	
+		}
+		if (i === 2) {
+				imagg.src = "C:\\Users\\blevo\\Desktop\\img_431453.png";
+			i= 0;	
+			return 0;
+		}
+		if (i==0){
+
+			imagg.src = "C:\\Users\\blevo\\Desktop\\N7cKYAOfCfw.jpg";
+			i = 1;
+			return 0;
+
+		}
+
+
+	}
+</script>
+</body>
+</html>

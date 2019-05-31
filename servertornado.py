@@ -9,20 +9,28 @@ This is a simple Websocket Echo server that uses the Tornado websocket handler.
 Please run `pip install tornado` with python of version 2.7.9 or greater to install tornado.
 This program will echo back the reverse of whatever it recieves.
 Messages are output to the terminal for debuggin purposes. 
+
+({axis: '0', velocityvektor:"-1", button: 'bty', action: 'buttondown',
+ VM: velocity.value, step: step.value}
+
+
 ''' 
+import parsecommand
 import linuxcnc
 c =linuxcnc.command()
 c.mode(linuxcnc.MODE_MANUAL)
-
+parser = parsecommand.Command
  
 class WSHandler(tornado.websocket.WebSocketHandler):
     def open(self):
         print ('new connection')
       
     def on_message(self, message):
+        parser.parse(message)
         print 'message received:  %s' % message
+
         # Reverse Message and send it back
-        print(message, type(message))
+        '''print(message, type(message))
         js = json.loads(message)
         mes = dict(js)
         if mes['action']=='btY':
@@ -31,7 +39,7 @@ class WSHandler(tornado.websocket.WebSocketHandler):
         if mes['action']=='btS':
             print 'Get BTY'
             c.jog(linuxcnc.JOG_STOP, 1)
-
+        '''
  
     def on_close(self):
         print ('connection closed')
