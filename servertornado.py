@@ -1,3 +1,6 @@
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import tornado.httpserver
 import tornado.websocket
 import tornado.ioloop
@@ -15,31 +18,58 @@ Messages are output to the terminal for debuggin purposes.
 
 
 ''' 
-import parsecommand
+
+
+
 import linuxcnc
+
+
+class Command :
+
+    c = linuxcnc.command()
+
+    def parseJog(self,mes):
+        print (mes)
+        print(mes["action"])
+        if mes["action"] == "buttondown":
+            if mes['axis'] !='stop':
+                c.jog(linuxcnc.JOG_CONTINUOUS, int(mes['axis']), int(mes['velocityvektor'])*int(mes['VM']))
+            else:
+                c.jog(linuxcnc.JOG_CONTINUOUS,0,0)
+                c.jog(linuxcnc.JOG_CONTINUOUS,1,0)
+                c.jog(linuxcnc.JOG_CONTINUOUS,2,0)
+        if mes['action'] == 'buttonup':
+            if mes['axis'] != 'stop':
+                c.jog(linuxcnc.JOG_CONTINUOUS,int(mes['axis']),0)
+            else:
+                c.jog(linuxcnc.JOG_CONTINUOUS,0,0)
+                c.jog(linuxcnc.JOG_CONTINUOUS,1,0)
+                c.jog(linuxcnc.JOG_CONTINUOUS,2,0)
+
+    def parse(self,message):
+        js = json.loads(message)
+        mes = dict(js)   #Словарь с сообщением(командами)
+        if mes['typeCommand'] == "jog":
+            self.parseJog(mes)
+        
+        #вызывает парсер команд JOG
+
+
+
 c =linuxcnc.command()
 c.mode(linuxcnc.MODE_MANUAL)
-parser = parsecommand.Command
- 
+
+
 class WSHandler(tornado.websocket.WebSocketHandler):
     def open(self):
         print ('new connection')
-      
     def on_message(self, message):
+        print(message)
+        parser = Command()
         parser.parse(message)
-        print 'message received:  %s' % message
+        print ('message received:  %s' % message)
 
-        # Reverse Message and send it back
-        '''print(message, type(message))
-        js = json.loads(message)
-        mes = dict(js)
-        if mes['action']=='btY':
-            print 'Get BTY'
-            c.jog(linuxcnc.JOG_CONTINUOUS, 1, 100)
-        if mes['action']=='btS':
-            print 'Get BTY'
-            c.jog(linuxcnc.JOG_STOP, 1)
-        '''
+        
  
     def on_close(self):
         print ('connection closed')
@@ -57,5 +87,5 @@ if __name__ == "__main__":
     http_server = tornado.httpserver.HTTPServer(application)
     http_server.listen(8889, address= '192.168.100.245')
     myIP = socket.gethostbyname(socket.gethostname())
-    print '*** Websocket Server Started at %s***' % myIP
+    print( '*** Websocket Server Started at %s***' % myIP)
     tornado.ioloop.IOLoop.instance().start()

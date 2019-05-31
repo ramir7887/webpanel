@@ -712,72 +712,72 @@ var btY = document.querySelector('.btY'),
     btX = document.querySelector('.btX'),
     bty = document.querySelector('.bty'),
     btz = document.querySelector('.btz'),
-    websocket = new WebSocket("ws://127.0.0.1:6789"); //менять адрес и порт , для торнадо еще в конце добавить /ws
+    websocket = new WebSocket("ws://192.168.100.245:8889/ws"); //менять адрес и порт , для торнадо еще в конце добавить /ws
 function btnY(event) {
         if (event.type === "mousedown"){
           var velocity = document.getElementById('MVslider');
                   var step = document.getElementById('stepselect');
-                websocket.send(JSON.stringify({axis: '0', velocityvektor:"1",button: 'btY', action: 'buttondown', VM: velocity.value, step: step.value}));
+                websocket.send(JSON.stringify({typeCommand:"jog", axis: '0', velocityvektor:"1",button: 'btY', action: 'buttondown', VM: velocity.value, step: step.value}));
         }
         else if(event.type === "mouseup")
-                websocket.send(JSON.stringify({axis: '0', velocityvektor:"0", button: 'btY', action: 'buttonup'}));
+                websocket.send(JSON.stringify({typeCommand:"jog", axis: '0', velocityvektor:"0", button: 'btY', action: 'buttonup'}));
                   }
 function btnZ() {
                  if (event.type === "mousedown"){
                   var velocity = document.getElementById('MVslider');
                   var step = document.getElementById('stepselect');
-                websocket.send(JSON.stringify({axis: '2', velocityvektor:"1",button: 'btZ', action: 'buttondown', VM: velocity.value, step: step.value}));
+                websocket.send(JSON.stringify({typeCommand:"jog", axis: '2', velocityvektor:"1",button: 'btZ', action: 'buttondown', VM: velocity.value, step: step.value}));
               }
         else if(event.type === "mouseup")
-                websocket.send(JSON.stringify({axis: '2', velocityvektor:"0", button: 'btZ', action: 'buttonup'}));
+                websocket.send(JSON.stringify({typeCommand:"jog", axis: '2', velocityvektor:"0", button: 'btZ', action: 'buttonup'}));
             }
 function btnx() {
                  if (event.type === "mousedown"){
                   var velocity = document.getElementById('MVslider');
                   var step = document.getElementById('stepselect');
-                websocket.send(JSON.stringify({axis: '1', velocityvektor:"-1", button: 'btx', action: 'buttondown', VM: velocity.value, step: step.value}));
+                websocket.send(JSON.stringify({typeCommand:"jog", axis: '1', velocityvektor:"-1", button: 'btx', action: 'buttondown', VM: velocity.value, step: step.value}));
               }
         else if(event.type === "mouseup")
-                websocket.send(JSON.stringify({axis: '1', velocityvektor:"0",button: 'btx', action: 'buttonup'}));
+                websocket.send(JSON.stringify({typeCommand:"jog", axis: '1', velocityvektor:"0",button: 'btx', action: 'buttonup'}));
             }
 function btnS() {
                  if (event.type === "mousedown"){
                   var velocity = document.getElementById('MVslider');
                   var step = document.getElementById('stepselect');
                   
-                websocket.send(JSON.stringify({axis: 'stop',velocityvektor:"0",button: 'btS', action: 'buttondown', VM: velocity.value, step: step.value}));
+                websocket.send(JSON.stringify({typeCommand:"jog", axis: 'stop',velocityvektor:"0",button: 'btS', action: 'buttondown', VM: velocity.value, step: step.value}));
               }
         else if(event.type === "mouseup")
-                websocket.send(JSON.stringify({axis: 'stop', velocityvektor:"0",button: 'btS', action: 'buttonup'}));
+                websocket.send(JSON.stringify({typeCommand:"jog", axis: 'stop', velocityvektor:"0",button: 'btS', action: 'buttonup'}));
             }
 function btnX() {
                  if (event.type === "mousedown"){
                   var velocity = document.getElementById('MVslider');
                   var step = document.getElementById('stepselect');
-                websocket.send(JSON.stringify({axis: '1', velocityvektor:"1", button: 'btX', action: 'buttondown', VM: velocity.value, step: step.value}));
+                websocket.send(JSON.stringify({typeCommand:"jog", axis: '1', velocityvektor:"1", button: 'btX', action: 'buttondown', VM: velocity.value, step: step.value}));
               }
         else if(event.type === "mouseup")
 
-                websocket.send(JSON.stringify({axis: '1', velocityvektor:"0", button: 'btX', action: 'buttonup'}));
+                websocket.send(JSON.stringify({typeCommand:"jog", axis: '1', velocityvektor:"0", button: 'btX', action: 'buttonup'}));
             }
 function btny() {
                  if (event.type === "mousedown"){
                   var velocity = document.getElementById('MVslider');
                   var step = document.getElementById('stepselect');
-                websocket.send(JSON.stringify({axis: '0', velocityvektor:"-1", button: 'bty', action: 'buttondown', VM: velocity.value, step: step.value}));
+                websocket.send(JSON.stringify({typeCommand:"jog", axis: '0', velocityvektor:"-1", button: 'bty', action: 'buttondown', VM: velocity.value, step: step.value}));
               }
         else if(event.type === "mouseup")
-                websocket.send(JSON.stringify({axis: '0', velocityvektor:"0", button: 'bty', action: 'buttonup'}));
+                websocket.send(JSON.stringify({typeCommand:"jog", axis: '0', velocityvektor:"0", button: 'bty', action: 'buttonup'}));
             }
 function btnz() {
                  if (event.type === "mousedown"){
 
                   var velocity = document.getElementById('MVslider');
                   var step = document.getElementById('stepselect');
-                websocket.send(JSON.stringify({axis: '2',velocityvektor:"-1",button: 'btz', action: 'buttondown', VM: velocity.value, step: step.value}));
+                websocket.send(JSON.stringify({typeCommand:"jog", axis: '2',velocityvektor:"-1",button: 'btz', action: 'buttondown', VM: velocity.value, step: step.value}));
               }
         else if(event.type === "mouseup")
-                websocket.send(JSON.stringify({axis: '2',velocityvektor: "0",button: 'btz',action: 'buttonup'}));
+                websocket.send(JSON.stringify({typeCommand:"jog", axis: '2',velocityvektor: "0",button: 'btz',action: 'buttonup'}));
                 
             }
 
