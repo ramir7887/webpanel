@@ -24,7 +24,7 @@ Messages are output to the terminal for debuggin purposes.
 import linuxcnc
 
 
-class Command :
+class Command : #парсит команды, принимаемые в виде json
 
     c = linuxcnc.command()
 
@@ -58,7 +58,8 @@ class Command :
 
 c =linuxcnc.command()
 c.mode(linuxcnc.MODE_MANUAL)
-
+s = linuxcnc.stat()
+s.poll()
 
 class WSHandler(tornado.websocket.WebSocketHandler):
     def open(self):
@@ -68,9 +69,14 @@ class WSHandler(tornado.websocket.WebSocketHandler):
         parser = Command()
         parser.parse(message)
         print ('message received:  %s' % message)
+    
+    def test(self):
+        while True:
+            s.poll()
+            mes = json.dumps(list(s.actual_position))
+            self.write_message(mes)
+            print(mes)
 
-        
- 
     def on_close(self):
         print ('connection closed')
  
@@ -89,3 +95,4 @@ if __name__ == "__main__":
     myIP = socket.gethostbyname(socket.gethostname())
     print( '*** Websocket Server Started at %s***' % myIP)
     tornado.ioloop.IOLoop.instance().start()
+    
