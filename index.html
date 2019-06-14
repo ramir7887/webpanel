@@ -628,7 +628,7 @@
 		<button type = "button" class="bty btn btn-light" onmousedown="btny(event)" onmouseup="btny(event)"> Y-</button>
 		<button type = "button" class="btz btn btn-light" onmousedown="btnz(event)" onmouseup="btnz(event)"> Z-</button>
 
-    <button type = "button" class="homeall btn btn-light" onclick="btnhomeall()"> Home All</button>
+    <button type = "button" class="homeall btn btn-light" onclick="homeall()"> Home All</button>
     <button type = "button" class="touchoff btn btn-light" onclick="btntouchoff()"> Touch Off</button>
 
 		</div>
@@ -712,6 +712,7 @@ var btY = document.querySelector('.btY'),
     btX = document.querySelector('.btX'),
     bty = document.querySelector('.bty'),
     btz = document.querySelector('.btz'),
+	 btnhomeall = document.querySelector('.homeall'),
     websocket = new WebSocket("ws://192.168.100.245:8889/ws"); //менять адрес и порт , для торнадо еще в конце добавить /ws
 function btnY(event) {
         if (event.type === "mousedown"){
@@ -780,7 +781,10 @@ function btnz() {
                 websocket.send(JSON.stringify({typeCommand:"jog", axis: '2',velocityvektor: "0",button: 'btz',action: 'buttonup'}));
                 
             }
-
+function homeall() {
+            websocket.send(JSON.stringify({typeCommand:"home", axis: 'all'}));
+        }
+        
 function replace(event) {
   
  var slider = event.target;

@@ -24,7 +24,7 @@ Messages are output to the terminal for debuggin purposes.
 import linuxcnc
 
 
-class Command : #парсит команды, принимаемые в виде json
+class Command :
 
     c = linuxcnc.command()
 
@@ -46,53 +46,45 @@ class Command : #парсит команды, принимаемые в виде
                 c.jog(linuxcnc.JOG_CONTINUOUS,1,0)
                 c.jog(linuxcnc.JOG_CONTINUOUS,2,0)
 
+    def parseHome(self,mes):
+        if mes['axis'] == 'all':
+		c.home(0)
+		c.home(1)
+		c.home(2)
+    
     def parse(self,message):
         js = json.loads(message)
-        mes = dict(js)   #Словарь с сообщением(командами)
+        mes = dict(js)   
         if mes['typeCommand'] == "jog":
             self.parseJog(mes)
-        
-        #вызывает парсер команд JOG
-
-
+        if mes['typeCommand'] == "home":
+            self.parseHome(mes)
 
 c =linuxcnc.command()
 c.mode(linuxcnc.MODE_MANUAL)
-s = linuxcnc.stat()
-s.poll()
+
 
 class WSHandler(tornado.websocket.WebSocketHandler):
-    def open(self):
-        print ('new connection')
-    def on_message(self, message):
-        print(message)
-        parser = Command()
-        parser.parse(message)
-        print ('message received:  %s' % message)
-    
-    def test(self):
-        while True:
-            s.poll()
-            mes = json.dumps(list(s.actual_position))
-            self.write_message(mes)
-            print(mes)
+	def open(self):
+		print ('new connection')
+	def on_message(self, message):
+		print(message)
+		parser = Command()
+		parser.parse(message)
+		print ('message received:  %s' % message)
+	def on_close(self):
+        	print ('connection closed')
+    	def check_origin(self, origin):
+        	return True
 
-    def on_close(self):
-        print ('connection closed')
- 
-    def check_origin(self, origin):
-        return True
- 
 application = tornado.web.Application([
-    (r'/ws', WSHandler),
+ (r'/ws', WSHandler),
 ])
 print(application.default_host)
- 
- 
+
 if __name__ == "__main__":
     http_server = tornado.httpserver.HTTPServer(application)
     http_server.listen(8889, address= '192.168.100.245')
     myIP = socket.gethostbyname(socket.gethostname())
     print( '*** Websocket Server Started at %s***' % myIP)
     tornado.ioloop.IOLoop.instance().start()
-    
