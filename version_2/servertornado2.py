@@ -3,8 +3,6 @@ import tornado.httpserver
 import tornado.websocket
 import tornado.ioloop
 import tornado.web
-import socket
-import json
 import datetime
 import time
 # import linuxcnc
@@ -56,7 +54,7 @@ class Command:
             # self.c.jog(linuxcnc.JOG_INCREMENT, parameters['axis'], velocity, distance)
 
     def home_all(self, parameters):
-        # сдедать так что бы сначала Z в ноль приезжала, затем Y, затем X
+        # Сдедать так что бы сначала Z в ноль приезжала, затем Y, затем X
         # self.c.home(2)
         # self.c.home(1)
         # self.c.home(0)
@@ -68,30 +66,55 @@ class Command:
             print('Axis X (0) goes home.')
 
     def home_axis(self, parameters):
-        # сделать такое, что можно отдельную ось хомить
+        # Сделать такое, что можно отдельную ось хомить
         # self.c.home(parameters['axis'])
         print('Axis {0} goes home.'.format(parameters['axis']))
 
     def stop_axis(self, parameters):
         # вызывается при поднятии кнопки мыши отвечающей за ось
         # self.c.jog(linuxcnc.JOG_STOP, parameters['axis'])
-        print('Axis {0} stopped'.format(parameters['axis']))
+        print('Axis {0} stopped.'.format(parameters['axis']))
 
 
 
     def jog_on(self, parameters):
         # включает JOG режим
-        # self.c.mode()  # посмотреть, что нужно передавать в качестве аргумента
-        pass
+        # посмотреть, что нужно передавать в качестве аргумента
+        # self.c.mode(linuxcnc.MODE_MANUAL)
+        # self.c.wait_complete()
+        print('Mode JOG ON! ')
 
     def spindle(self, parameters):
-        pass
+        # Пока реализовано только включение и выключение
+        # При доработке на самом станке, реализовать выбор направления вращения и скорость вращения
+        # self.c.spindle(int(parameters['state'])) # Если передается 1 - включает вращение шпинделя, если ноль выключает
+        if parameters['state']:  # Просто для проверки, что работает. В дальнейшем уберется
+            print('Spindle rotates.')
+        else:
+            print('Spindle stoped.')
 
     def mdi_on(self, parameters):
         # вставить из примера MDI
-        pass
+        # self.c.mode(linuxcnc.MODE_MDI)
+        # self.c.wait_complete()
+        print('Mode MDI ON! ')
 
-    def send_command(self, parameters):
+    def mdi_command(self, parameters):
+        print('Command MDI: ' + parameters['mdi_string'])
+        # Еще здесь в параметрах есть:
+        # feed_override: int
+        # rapid_override: int
+        # spindle_override: int
+        # max_velocity: int
+
+        # self.s.poll()
+        # if not s.estop and s.enabled and (s.homed.count(1) == s.axes) and (s.interp_state == linuxcnc.INTERP_IDLE):
+            # self.c.mdi(str(parameters['mdi_string']))
+        # else:
+            # send_info()   # Здесь нужно реализовать сборщик сообщения если возникает ошибка
+                            # и нет возможности исполнить строчку
+
+    def send_command(self, parameters):  # Вместо нее в MDI теперь mdi_command()
         pass
 
     def auto_on(self, parameters):
@@ -109,7 +132,8 @@ class Command:
                     'mdi_on': mdi_on,
                     'send_command': send_command,
                     'auto_on': auto_on,
-                    'send_file': send_file
+                    'send_file': send_file,
+                    'mdi_command': mdi_command
                     }
 
 clients = [] # Список для клиентов подключающихся к серверу
@@ -145,14 +169,79 @@ class WebSocketHandler(tornado.websocket.WebSocketHandler):
 
     def send_info(self):
         self.write_message('Отправляю информации о работе станка клиенту!')
-        
         # tornado.ioloop.IOLoop.instance().add_timeout(datetime.timedelta(seconds=0.01), self.send_info) # старый способ
 
+##############################################
+##############################################
+##############################################
+##############################################
+# ДЛЯ РАБОТЫ С ФАЙЛАМИ
+import tornado
+import os, uuid, shutil
+__UPLOADS__ = "uploads/"
+#files = []
+class Userform(tornado.web.RequestHandler):
+    def get(self):
+        files = []
+        # r=root, d=directories, f = files
+        for r, d, f in os.walk(__UPLOADS__):
+                for file in f:
+            #if '.txt' in file:
+                #files.append(os.path.join(r, file))
+            #files.append(os.path.join(r, file)) #for find full puth
+            files.append(file) #for find only file name
+        #for f in files:
+            #    print(f)
+
+
+        self.render("/home/cnc/Desktop/python-send-file/index.html", programs=files)
+
+
+class Upload(tornado.web.RequestHandler):
+    def post(self):
+        #	name = self.get_argument('name')
+        #        print "file_name", name
+        fileinfo = self.request.files['file'][0]
+        #        print "fileinfo is", fileinfo
+        fname = fileinfo['filename']
+        extn = os.path.splitext(fname)[1]
+        name = os.path.splitext(fname)[0]
+
+        # for the_file in os.listdir(__UPLOADS__): #clear all files in dirrectory
+        #	    file_path = os.path.join(__UPLOADS__, the_file)
+        #	    try:
+        #            if os.path.isfile(file_path):
+        #                os.unlink(file_path)
+        #    #elif os.path.isdir(file_path): shutil.rmtree(file_path) #remove subdirectories
+        #    except Exception as e:
+        #            print(e)
+
+        cname = __UPLOADS__ + name + extn  # 1-path 2-file_name 3-file_extention
+        #        if os.path.isfile(cname): #check file  already exists
+        #	    os.remove(cname) #delete old file with this name
+
+        fh = open(cname, 'w')
+        fh.write(fileinfo['body'])
+        self.finish(cname + " is uploaded!! Check %s folder" % __UPLOADS__)
+
+
+
+
+##############################################
+##############################################
+##############################################
+##############################################
 
 
 application = tornado.web.Application([
-        (r"/ws", WebSocketHandler),
-])
+    (r"/ws", WebSocketHandler),
+    (r"/", Userform),
+    (r"/upload", Upload),
+    (r'/uploads/(.*)', tornado.web.StaticFileHandler, {'path': __UPLOADS__}),
+    (r'/js/(.*)', tornado.web.StaticFileHandler, {'path': './js/'}),
+	(r'/css/(.*)', tornado.web.StaticFileHandler, {'path': './css/'}),
+    ],
+    debug=True)
 
 ####################################
 count = 0                          #
@@ -162,7 +251,8 @@ def counter():                     #
     return count                   #
 #################################### для счетчика отправленных с сервера сообщений, чисто для наглядности (Используется в отправке сообщений send_info() )
 
-def send_info():
+def send_info(): # Реализовать, чтобы принимала в качестве параметра результат выполнения какой-либо функции
+                 # например, send_info(Information.build_message())
     """
     send_info() пробегается по массиву подключенных клиентов и отправляет информацию о работе оборудования
     """
