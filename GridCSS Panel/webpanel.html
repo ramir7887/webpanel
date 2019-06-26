@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>WEB-PANEL</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="scripts.js"></script>
+</head>
+<body>
+	<style type="text/css">
+		
+
+	</style>
+	
+		<div id='header'>
+			шапка
+		</div>
+
+		<div id='aside'>
+			<div class="coordinates">
+				<div class="label">Machine Coordinates</div>
+					<div class="coord">
+						<div id="Machine_X">X_data</div>
+						<div id="Machine_Y">Y_data</div>
+						<div id="Machine_Z">Z_data</div>
+					</div>
+				<div class="label">Work Coordinates</div>
+					<div class="coord">
+						<div id="Work_X">X_data</div>
+						<div id="Work_Y">Y_data</div>
+						<div id="Work_Z">Z_data</div>
+					</div>
+			</div>
+
+			<div class="auto">
+				<button id="" title="Open G Code file "> <img src="images/folder.png" width="35" height="35"></button>
+				<button id="" title="Reload current file"><img src="images/refresh.png" width="35" height="35"></button>
+				<button id="" title="Begin executing the current file"><img src="images/play-button.png" width="35" height="35"></button>
+				<button id="" title="Execute next line"><img src="images/next.png" width="35" height="35"></button>
+				<button id="" title="Pause Execution [P] Resume Execution"><img src="images/pause.png" width="35" height="35"></button>
+				<button id="" title="Stop Program Execution"><img src="images/stop.png" width="35" height="35"></button>
+				<button id="" title="Toggle Skip lines with '/'"><img src="images/right-arrow.png" width="35" height="35"></button>
+				<button id="" title="Toggle Optional Pause"><img src="images/pauseM1.png" width="35" height="35"></button>
+			</div>
+
+			<div class="jog_mdi_menu">
+				<div class="tabs">
+    				<input id="tab1" type="radio" name="tabs" checked>
+   					 <label for="tab1" title="Вкладка 1">MANUAL</label>
+ 
+				    <input id="tab2" type="radio" name="tabs">
+				    <label for="tab2" title="Вкладка 2">MDI</label>
+				 
+
+				 
+				    <section id="content-tab1">
+				        <button id="">X+</button>
+				        <button id="">X-</button>
+				        <button id="">Y+</button>
+				        <button id="">Y-</button>
+				        <button id="">Z+</button>
+				        <button id="">Z-</button>
+				        <button id="">Home All</button>
+				        <button id="">Touch Off</button>
+				        <button id="">Right</button>
+				        <button id="">Left</button>
+				        <button id="">Stop</button>
+				        <div class="label">Step</div>
+				        <div class="label">Axis</div>
+				        <div class="label">Spindle</div>
+				        <select name="" id="stepselect" class="steps">
+						    <option value="Continuous">Continuous</option>
+						    <option value="5">5mm</option>
+						    <option value="1">1mm</option>
+						    <option value="0.5">.5mm</option>
+						    <option value="0.1">.1mm</option>
+						    <option value="0.05">.05mm</option>
+						    <option value="0.01">.01mm</option>
+						    <option value="0.005">.005mm</option>
+						    </select>
+				    </section>
+
+				    <section id="content-tab2">
+				        <div class="mdibar">
+  
+						    
+						    <div class="history">
+						        <textarea name="" id="" cols="30" rows="4" readonly class="texthistory"> history
+						        </textarea>
+						    </div>
+						    <div class="entermdi">
+						        <input type="text" id="mditext" >
+						        <button type = "button" class="btEnter btn btn-outline-success" onclick="btnEnter()"> Go</button>
+
+						    </div>
+						    <div class="commands">
+						    <textarea name="" id="" cols="30" rows="2" readonly class="G_command">command</textarea>
+							</div>
+						</div>
+				    </section> 
+				    
+				</div>
+
+			</div>
+
+
+			<div class="slider_menu">
+				<div class="slider">
+					<div class="">
+						Feed Override
+					</div>
+					<div id="">
+						value
+					</div>
+					<input type="range" id="">
+				</div>
+				<div class="slider">
+					<div class="">
+						Rapid Override
+					</div>
+					<div id="">
+						value
+					</div>
+					<input type="range" id="">
+				</div>
+				<div class="slider">
+					<div class="">
+						Spindle Override
+					</div>
+					<div id="">
+						value
+					</div>
+					<input type="range" id="">
+				</div>
+				<div class="slider">
+					<div class="">
+						Jog Speed
+					</div>
+					<div id="">
+						value
+					</div>
+					<input type="range" id="">
+				</div>
+				<div class="slider">
+					<div class="">
+						Max Velocity
+					</div>
+					<div id="">
+						value
+					</div>
+					<input type="range" id="">
+				</div>
+			</div>
+		</div>
+		<div id='article'>
+			<div class="" id="visualization">визуализация</div>
+			<div class="" id="history">история</div>
+			<div class="" id="extra_bed">доп место</div>
+		</div>
+		
+	
+</body>
+</html>
