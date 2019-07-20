@@ -5,6 +5,8 @@ import tornado.ioloop
 import tornado.web
 import datetime
 import time
+import os
+import sys
 # import linuxcnc
 
 ##########################################
@@ -55,6 +57,10 @@ class Command:
 
     def home_all(self, parameters):
         # Сдедать так что бы сначала Z в ноль приезжала, затем Y, затем X
+        # Функция  wait_complete([float]) wait for completion of the last command sent.If timeout in seconds
+        #   not specified, default is 5 seconds.Return -1 if timed out,
+        #   return RCS_DONE or RCS_ERROR according to command execution status.
+
         # self.c.home(2)
         # self.c.home(1)
         # self.c.home(0)
@@ -74,8 +80,6 @@ class Command:
         # вызывается при поднятии кнопки мыши отвечающей за ось
         # self.c.jog(linuxcnc.JOG_STOP, parameters['axis'])
         print('Axis {0} stopped.'.format(parameters['axis']))
-
-
 
     def jog_on(self, parameters):
         # включает JOG режим
@@ -118,10 +122,26 @@ class Command:
         pass
 
     def auto_on(self, parameters):
-        pass
+        # self.c.mode(MODE_AUTO)
+        print('Mode AUTO ON!')
 
-    def send_file(self, parameters):
-        pass
+    def send_file(self, parameters):  # Для Богдана
+        platform = sys.platform
+        path = os.getcwd()
+        listfiles = {'action':'send_file', 'parameters':[]}
+        if platform == 'win32' or platform == 'win64':
+            print(path)
+            fullpath = path + '\programs'
+            print(fullpath)
+        else:
+            fullpath = path + '/programs'
+        for file in os.listdir(fullpath):
+            file = file.decode('utf-8')
+            listfiles['parameters'].append(file)
+        if clients:
+            for client in clients:
+                client.write_message(listfiles)
+        print('SEND list_file: '+ str(listfiles))
 
     dict_command = {'move_axis': move_axis,
                     'home_all': home_all,
@@ -146,7 +166,7 @@ class WebSocketHandler(tornado.websocket.WebSocketHandler):
     def open(self):
         clients.append(self)
         self.write_message('connected')
-        print('===============\nnew conection\n===============')
+        print('================================\nnew conection :: '+clients[-1].request.remote_ip+'\n================================')
         # tornado.ioloop.IOLoop.instance().add_timeout(datetime.timedelta(seconds=0),self.send_info) # старый способ
 
     def on_message(self, message):
@@ -161,8 +181,9 @@ class WebSocketHandler(tornado.websocket.WebSocketHandler):
         print('DELTA', time, '\n')
 
     def on_close(self):
+        print ('================================\nconnection closed :: '+self.request.remote_ip+'\n================================')
         clients.remove(self)
-        print ('===============\nconnection closed\n===============')
+
 
     def check_origin(self, origin):
         return True
@@ -189,7 +210,7 @@ class Userform(tornado.web.RequestHandler):
             #if '.txt' in file:
                 #files.append(os.path.join(r, file))
             #files.append(os.path.join(r, file)) #for find full puth
-            files.append(file) #for find only file name
+                    files.append(file) #for find only file name
         #for f in files:
             #    print(f)
 
@@ -232,6 +253,15 @@ class Upload(tornado.web.RequestHandler):
 ##############################################
 ##############################################
 
+def send_info(): #Отправляет информацию клиенту
+    if clients:
+        for client in clients:
+            client.write_message('pipisa\n'+ counter())
+            print( str(datetime.datetime.now())+' :: SEND MESSAGE to ' + client.request.remote_ip)
+
+
+
+
 
 application = tornado.web.Application([
     (r"/ws", WebSocketHandler),
@@ -243,25 +273,16 @@ application = tornado.web.Application([
     ],
     debug=True)
 
-####################################
-count = 0                          #
-def counter():                     #
-    global count                   #
-    count = count + 1              #
-    return count                   #
-#################################### для счетчика отправленных с сервера сообщений, чисто для наглядности (Используется в отправке сообщений send_info() )
+# для счетчика отправленных с сервера сообщений, чисто для наглядности (Используется в отправке сообщений send_info() )
+count = 0
+def counter():
+    global count
+    count = count + 1
+    message = 'Отправляю информации о работе станка клиенту! Уже в {0} раз!'.format(count)
+    return message
 
-def send_info(): # Реализовать, чтобы принимала в качестве параметра результат выполнения какой-либо функции
-                 # например, send_info(Information.build_message())
-    """
-    send_info() пробегается по массиву подключенных клиентов и отправляет информацию о работе оборудования
-    """
-    if clients:
-        
-        for client in clients:
-            client.write_message('Отправляю информации о работе станка клиенту! Уже в {0} раз!'.format(counter()))
-        
-        
+
+
         
         
 
@@ -270,6 +291,6 @@ if __name__ == "__main__":
     http_server.listen(8001, address="127.0.0.1")  # задается адрес и порт сервера
     print('*** Websocket Server Started ***')
     loop = tornado.ioloop.IOLoop.instance()
-    period = tornado.ioloop.PeriodicCallback(send_info, 2000)
+    period = tornado.ioloop.PeriodicCallback(send_info, 1000)
     period.start()
     loop.start()

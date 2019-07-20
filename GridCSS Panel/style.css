@@ -24,9 +24,9 @@ body {
 			}
 
 		body div {
-			background-color: lightgrey;
-			border: 1px solid black;
-			border-radius: 6px;
+			background-color: #F2F2F2;
+			border: 1px solid #BFBFBF;
+			border-radius: 3px;
 		}
 
 #header {

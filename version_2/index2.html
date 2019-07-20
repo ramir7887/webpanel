@@ -699,7 +699,7 @@
       </div>
       <div class="entermdi">
         <input type="text" id="mditext" >
-        <button type = "button" class="btEnter btn btn-outline-success" onclick="btnEnter()"> Go</button>
+        <button type = "button" class="btEnter btn btn-outline-success" onclick="getfile(event)"> Go</button>
 
       </div>
       <div class="commands">
@@ -717,14 +717,18 @@ var btY = document.querySelector('.btY'),
     bty = document.querySelector('.bty'),
     btz = document.querySelector('.btz'),
 	 btnhomeall = document.querySelector('.homeall'),
-    websocket = new WebSocket("ws://pmelikov.ru:6002/ws");
+    websocket = new WebSocket("ws://127.0.0.1:8001/ws");
      //менять адрес и порт , для торнадо еще в конце добавить /ws
 websocket.onmessage = function(event) {
   console.log("Получены данные " + event.data);
    var Mess = document.getElementById('visual');
+   console.log(Mess)
    Mess.innerHTML = event.data;
 };
 
+function getfile(event) {
+	websocket.send(JSON.stringify({mode: "jog", action: "send_file", parameters: {axis: 1, velocity_vector: 1}}));
+}
 
 
 function btnY(event) {
