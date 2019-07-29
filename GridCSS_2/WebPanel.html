@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+    <link rel="stylesheet" href="tabs.css">
     <link rel="stylesheet" href="Styles.css">
     <title>Document</title>
 </head>
@@ -12,72 +12,88 @@
         <div class="Menu"></div>
         <div class="Sidebar">
           <div class="Coordinates">
-            <div class="MachineCoord"></div>
-            <div class="WorkCoord"></div>
+            <div class="MachineCoord">Machine Coordinates</div>
+            <div class="WorkCoord">Work Coordinates</div>
             <div class="MachineCoordData">
-              <div class="MachineCoordX"></div>
-              <div class="MachineCoordY"></div>
-              <div class="MachineCoordZ"></div>
-              <div class="MachineCoordDY"></div>
-              <div class="MachineCoordDX"></div>
-              <div class="MachineCoordDZ"></div>
+              <div class="MachineCoordX">X</div>
+              <div class="MachineCoordY">Y</div>
+              <div class="MachineCoordZ">Z</div>
+              <div class="MachineCoordDY">yData</div>
+              <div class="MachineCoordDX">xData</div>
+              <div class="MachineCoordDZ">zData</div>
             </div>
             <div class="WorkCoordData">
-              <div class="WorkCoordX"></div>
-              <div class="WorkCoordDX"></div>
-              <div class="WorkCoordY"></div>
-              <div class="WorkCoordDY"></div>
-              <div class="WorkCoordZ"></div>
-              <div class="WorkCoordDZ"></div>
+              <div class="WorkCoordX">X</div>
+              <div class="WorkCoordDX">xData</div>
+              <div class="WorkCoordY">Y</div>
+              <div class="WorkCoordDY">yData</div>
+              <div class="WorkCoordZ">Z</div>
+              <div class="WorkCoordDZ">zData</div>
             </div>
           </div>
           <div class="AutoMode">
             <div class="AutoButtons">
-              <div class="Btn1"></div>
-              <div class="Btn2"></div>
-              <div class="Btn3"></div>
-              <div class="Btn4"></div>
-              <div class="Btn5"></div>
-              <div class="Btn6"></div>
-              <div class="Btn7"></div>
-              <div class="Btn8"></div>
+              <div class="Btn1"><button>folder</button></div>
+              <div class="Btn2"><button>play</button></div>
+              <div class="Btn3"><button>refresh</button></div>
+              <div class="Btn4"><button>home</button></div>
+              <div class="Btn5"><button>home</button></div>
+              <div class="Btn6"><button>home</button></div>
+              <div class="Btn7"><button>home</button></div>
+              <div class="Btn8"><button>home</button></div>
             </div>
-            <div class="AutoName"></div>
-            <div class="AutoCheck"></div>
+            <div class="AutoName">Auto Mode</div>
+            <div class="AutoCheck"><button>ON</button></div>
           </div>
-          <div class="JOGandMDI"></div>
+          <div class="JOGandMDI">
+              <div class="tabs">
+                  <input type="radio" name="inset" value="" id="tab_1" checked>
+                  <label class="Manual" for="tab_1">Manual</label>
+                  <input type="radio" name="inset" value="" id="tab_2">
+                  <label class="MDI" for="tab_2">MDI</label>
+                  <div class="Content" id="txt_1">
+                      <h1>CONTENT 1</h1>
+                  </div>
+                  <div class="Content" id="txt_2">
+                      <h1>CONTENT 2</h1>
+                  </div>
+              </div>
+          </div>
           <div class="Sliders">
             <div class="FeedOverride">
-              <div class="SliderFO"></div>
-              <div class="Value"></div>
-              <div class="Name"></div>
+              <div class="SliderFO"><input type="range" id=""></div>
+              <div class="Value">Value</div>
+              <div class="Name">Feed Override</div>
             </div>
             <div class="RapidOverride">
-              <div class="SliderRO"></div>
-              <div class="Value"></div>
-              <div class="Name"></div>
+              <div class="SliderRO"><input type="range" id=""></div>
+              <div class="Value">Value</div>
+              <div class="Name">Rapid Override</div>
             </div>
             <div class="SpindleOverride">
-              <div class="SliderSO"></div>
-              <div class="Value"></div>
-              <div class="Name"></div>
+              <div class="SliderSO"><input type="range" id=""></div>
+              <div class="Value">Value</div>
+              <div class="Name">Spindle Override</div>
             </div>
             <div class="JogSpeed">
-              <div class="SliderJS"></div>
-              <div class="Value"></div>
-              <div class="Name"></div>
+              <div class="SliderJS"><input type="range" id=""></div>
+              <div class="Value">Value</div>
+              <div class="Name">Jog Speed</div>
             </div>
             <div class="MaxVelocity">
-              <div class="SliderMV"></div>
-              <div class="Value"></div>
-              <div class="Name"></div>
+              <div class="SliderMV"><input type="range" id=""></div>
+              <div class="Value">Value</div>
+              <div class="Name">Max Velocity</div>
             </div>
           </div>
         </div>
         <div class="Main">
-          <div class="Visualisation"></div>
+          <div class="Visualisation">Visualisation</div>
           <div class="Logging">
-            <div class="HistoryProgram"></div>
+            <div class="HistoryProgram">
+              <textarea >
+                текст
+              </textarea height='100%'></div>
             <div class="Log"></div>
           </div>
         </div>

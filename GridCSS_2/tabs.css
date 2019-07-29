@@ -1,0 +1,61 @@
+.tabs {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 7fr;
+    grid-template-areas: "Manual MDI" "Content Content";
+    width: 100%;
+    padding: 0px; 
+    margin: 0 auto;
+    background-color: #555555;
+    border-radius: 2px;
+}
+
+.tabs>input { 
+    display:none;
+ }
+
+.tabs .Content {
+    display: none;
+}
+
+.tabs>label {
+    text-align: center;
+    color: #727171;
+    border-right: 1px solid #2c2c2c;
+    background: #494949;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2em;
+    border-radius: 2px 2px 0px 0px;
+}
+
+.tabs>input:checked + label {
+    color: #1ba7a0;
+    /*
+    border-right: 1px solid #C0C0C0;
+    border-left: 1px solid #C0C0C0;
+    border-top: 1px solid #C0C0C0;
+    */
+    background: #555555;
+}
+
+
+
+.MDI { 
+    grid-area: MDI
+}
+
+.Manual {
+    grid-area: Manual;
+}
+
+.Content  {
+    grid-area: Content;
+    background-color: #555555;
+    border-radius: 0px 0px 2px 2px;
+}
+#tab_1:checked ~ #txt_1,
+#tab_2:checked ~ #txt_2
+ { display: block; }

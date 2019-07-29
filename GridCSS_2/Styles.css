@@ -1,15 +1,20 @@
 html, body, .grid-container { height: 100%; margin: 0; }
 
 .grid-container * { 
- border: 1px solid #cec7c7;
- position: relative;
+ /*
+  border: 1px solid #cec7c7; 
+*/
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .grid-container *:after { 
- content:attr(class);
+ /*content:attr(class);*/
  position: absolute;
  top: 0;
  left: 0;
+ 
+
 }
 
 .grid-container {
@@ -17,9 +22,17 @@ html, body, .grid-container { height: 100%; margin: 0; }
   grid-template-columns: 2.5fr 3fr 3fr 0fr 0fr;
   grid-template-rows: 0.5fr 3.5fr 2fr;
   grid-template-areas: "Menu Menu Menu . ." "Sidebar Main Main . ." "Sidebar Main Main . .";
+  background-color: #2c2c2c;
+  
 }
 
-.Menu { grid-area: Menu; }
+.Menu { 
+  grid-area: Menu; 
+  background-color:  #555555;
+  border: 1px solid #616161;
+  border-radius: 3px;
+  margin: 2px 5px 2px 5px;
+}
 
 .Sidebar {
   display: grid;
@@ -35,6 +48,14 @@ html, body, .grid-container { height: 100%; margin: 0; }
   grid-template-rows: 0.5fr 1fr 0.5fr 1fr;
   grid-template-areas: "MachineCoord" "MachineCoordData" "WorkCoord" "WorkCoordData";
   grid-area: Coordinates;
+  text-align: center;
+  vertical-align: middle;
+  background-color:  #555555;
+  border: 1px solid #616161;
+  border-radius: 3px;
+  margin: 2px 5px 2px 5px;
+  color: #0a968f;
+  font-size: 2em;
 }
 
 .MachineCoord { grid-area: MachineCoord; }
@@ -55,11 +76,20 @@ html, body, .grid-container { height: 100%; margin: 0; }
 
 .MachineCoordZ { grid-area: MachineCoordZ; }
 
-.MachineCoordDY { grid-area: MachineCoordDY; }
+.MachineCoordDY { 
+  grid-area: MachineCoordDY;
+  box-shadow: inset 0 0 6px;
+}
 
-.MachineCoordDX { grid-area: MachineCoordDX; }
+.MachineCoordDX { 
+  grid-area: MachineCoordDX; 
+  box-shadow: inset 0 0 6px;
+}
 
-.MachineCoordDZ { grid-area: MachineCoordDZ; }
+.MachineCoordDZ { 
+  grid-area: MachineCoordDZ;
+  box-shadow: inset 0 0 6px;
+}
 
 .WorkCoordData {
   display: grid;
@@ -71,15 +101,24 @@ html, body, .grid-container { height: 100%; margin: 0; }
 
 .WorkCoordX { grid-area: WorkCoordX; }
 
-.WorkCoordDX { grid-area: WorkCoordDX; }
+.WorkCoordDX { 
+  grid-area: WorkCoordDX;
+  box-shadow: inset 0 0 6px;
+}
 
 .WorkCoordY { grid-area: WorkCoordY; }
 
-.WorkCoordDY { grid-area: WorkCoordDY; }
+.WorkCoordDY {
+   grid-area: WorkCoordDY;
+   box-shadow: inset 0 0 6px;
+  }
 
 .WorkCoordZ { grid-area: WorkCoordZ; }
 
-.WorkCoordDZ { grid-area: WorkCoordDZ; }
+.WorkCoordDZ {
+   grid-area: WorkCoordDZ;
+   box-shadow: inset 0 0 6px;
+  }
 
 .AutoMode {
   display: grid;
@@ -87,6 +126,10 @@ html, body, .grid-container { height: 100%; margin: 0; }
   grid-template-rows: 1fr;
   grid-template-areas: "AutoCheck AutoName AutoButtons";
   grid-area: AutoMode;
+  background-color:  #555555;
+  border: 1px solid #616161;
+  border-radius: 3px;
+  margin: 2px 5px 2px 5px;
 }
 
 .AutoButtons {
@@ -95,29 +138,68 @@ html, body, .grid-container { height: 100%; margin: 0; }
   grid-template-rows: 1fr 1fr;
   grid-template-areas: "Btn1 Btn2 Btn3 Btn4" "Btn5 Btn6 Btn7 Btn8";
   grid-area: AutoButtons;
+  margin: 1px;
 }
 
-.Btn1 { grid-area: Btn1; }
+.Btn1 { 
+  grid-area: Btn1;
+  margin: 1px;
+}
 
-.Btn2 { grid-area: Btn2; }
+.Btn2 { 
+  grid-area: Btn2;
+  margin: 1px;
+}
 
-.Btn3 { grid-area: Btn3; }
+.Btn3 { 
+  grid-area: Btn3;
+  margin: 1px;
+}
 
-.Btn4 { grid-area: Btn4; }
+.Btn4 { 
+  grid-area: Btn4; 
+  margin: 1px;
+}
 
-.Btn5 { grid-area: Btn5; }
+.Btn5 { 
+  grid-area: Btn5; 
+  margin: 1px;
+}
 
-.Btn6 { grid-area: Btn6; }
+.Btn6 { 
+  grid-area: Btn6;
+  margin: 1px;
+}
 
-.Btn7 { grid-area: Btn7; }
+.Btn7 {
+   grid-area: Btn7;
+   margin: 1px;
+}
 
-.Btn8 { grid-area: Btn8; }
+.Btn8 { 
+  grid-area: Btn8;
+  margin: 1px;
+}
 
-.AutoName { grid-area: AutoName; }
+.AutoName { 
+  grid-area: AutoName; 
+  font-size: 2em;
+}
 
 .AutoCheck { grid-area: AutoCheck; }
 
-.JOGandMDI { grid-area: JOGandMDI; }
+.AutoCheck button {
+  border-radius: 50%;
+}
+
+.JOGandMDI { 
+  
+  grid-area: JOGandMDI;
+  background-color:  #555555;
+  border: 1px solid #616161;
+  border-radius: 3px;
+  margin: 2px 5px 2px 5px;
+}
 
 .Sliders {
   display: grid;
@@ -125,11 +207,21 @@ html, body, .grid-container { height: 100%; margin: 0; }
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas: "FeedOverride" "RapidOverride" "SpindleOverride" "JogSpeed" "MaxVelocity";
   grid-area: Sliders;
+  background-color:  #555555;
+  border: 1px solid #616161;
+  border-radius: 3px;
+  margin: 2px 5px 2px 5px;
+}
+
+.Sliders input {
+  width: 99%;
+  height: 100%;
+  margin: 2px;
 }
 
 .FeedOverride {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1.5fr;
+  grid-template-columns: 2fr 1fr 1.5fr;
   grid-template-rows: 1fr;
   grid-template-areas: "Name Value SliderFO";
   grid-area: FeedOverride;
@@ -137,13 +229,19 @@ html, body, .grid-container { height: 100%; margin: 0; }
 
 .SliderFO { grid-area: SliderFO; }
 
-.Value { grid-area: Value; }
+.Value { 
+  grid-area: Value; 
+  height: 100%;
+  align-items: center;
+  align-content: center;
+  vertical-align: middle;s
+}
 
 .Name { grid-area: Name; }
 
 .RapidOverride {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1.5fr;
+  grid-template-columns: 2fr 1fr 1.5fr;
   grid-template-rows: 1fr;
   grid-template-areas: "Name Value SliderRO";
   grid-area: RapidOverride;
@@ -157,7 +255,7 @@ html, body, .grid-container { height: 100%; margin: 0; }
 
 .SpindleOverride {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1.5fr;
+  grid-template-columns: 2fr 1fr 1.5fr;
   grid-template-rows: 1fr;
   grid-template-areas: "Name Value SliderSO";
   grid-area: SpindleOverride;
@@ -171,7 +269,7 @@ html, body, .grid-container { height: 100%; margin: 0; }
 
 .JogSpeed {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1.5fr;
+  grid-template-columns: 2fr 1fr 1.5fr;
   grid-template-rows: 1fr;
   grid-template-areas: "Name Value SliderJS";
   grid-area: JogSpeed;
@@ -185,7 +283,7 @@ html, body, .grid-container { height: 100%; margin: 0; }
 
 .MaxVelocity {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1.5fr;
+  grid-template-columns: 2fr 1fr 1.5fr;
   grid-template-rows: 1fr;
   grid-template-areas: "Name Value SliderMV";
   grid-area: MaxVelocity;
@@ -195,7 +293,11 @@ html, body, .grid-container { height: 100%; margin: 0; }
 
 .Value { grid-area: Value; }
 
-.Name { grid-area: Name; }
+.Name { 
+  grid-area: Name;
+  text-align: center;
+  font-size: 2em;
+}
 
 .Main {
   display: grid;
@@ -205,7 +307,13 @@ html, body, .grid-container { height: 100%; margin: 0; }
   grid-area: Main;
 }
 
-.Visualisation { grid-area: Visualisation; }
+.Visualisation { 
+  grid-area: Visualisation;
+  background-color:  #555555;
+  border: 1px solid #616161;
+  border-radius: 3px;
+  margin: 2px 5px 2px 0px;
+}
 
 .Logging {
   display: grid;
@@ -213,8 +321,26 @@ html, body, .grid-container { height: 100%; margin: 0; }
   grid-template-rows: 1fr 1fr;
   grid-template-areas: "HistoryProgram Log" "HistoryProgram Log";
   grid-area: Logging;
+  background-color:  #555555;
+  border: 1px solid #616161;
+  border-radius: 3px;
+  margin: 2px 5px 2px 0px;
 }
 
 .HistoryProgram { grid-area: HistoryProgram; }
 
 .Log { grid-area: Log; }
+
+
+.AutoButtons button  {
+  height: 100%;
+  width: 100%;
+  border-radius: 2px;
+}
+
+.Value {
+  border: 1px solid #707070;
+  text-align: center;
+  color: #1ba7a0;
+  background-color: #fdfdfd;
+}
