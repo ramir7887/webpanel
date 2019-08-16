@@ -19,19 +19,36 @@ import sys
 
 # КЛАСС СБОРА ИНФОРМАЦИИ СО СТАНКА, УПАКОВКИ И ОТПРАКИ ДАННЫХ КЛИЕНТУ
 class Information:
+
+    error = None
+    tmp = None
+    typus = None
     # s = linuxcnc.stat()
+    # e = linuxcnc.error_channel()
 
     # возможно две функции и не нужны, сможет все делать одна.
     # этот класс может использоваться как основа для диагностической составляющей
     # (смотреть в сторону АИС Диспетчер, его функций и возможностей)
-    # 
+    #
 
     def get_info(self):  # Функция, получающая информацию со станка
-        # s.poll()
-        pass
-    
-    def build_message(self): # Функция строит сообщение для отправки 
+        # self.s.poll()
+        #error = self.e.poll()  #было коментом до Рамира
+
+        '''
+        if error:
+            kind = error
+            if kind in (linuxcnc.NML_ERROR, linuxcnc.OPERATOR_ERROR):
+                typus = "error "
+            else:
+                typus = "info "
+        '''
+
+    def build_message(self):  # Функция строит сообщение для отправки
         self.get_info()
+        # errors_cords = {"error": str(self.e.poll()),"x":self.s.actual_position[0], "y":self.s.actual_position[1], "z":self.s.actual_position[2]}
+        # return errors_cords
+        return 'Worked'  # вместо первого ретерна
         
 
 # КЛАСС ПАРСИНГА КОМАНД ОТ КЛИЕНТА
@@ -253,12 +270,21 @@ class Upload(tornado.web.RequestHandler):
 ##############################################
 ##############################################
 
-def send_info(): #Отправляет информацию клиенту
+information = Information()
+
+
+def send_info():  # Отправляет информацию клиенту
     if clients:
         for client in clients:
-            client.write_message('pipisa\n'+ counter())
-            print( str(datetime.datetime.now())+' :: SEND MESSAGE to ' + client.request.remote_ip)
-
+            message = information.build_message()
+            if information.tmp == message:
+                print ("Not change")
+            else:
+                # client.write_message('pipisa\n' + counter())
+                client.write_message(str(message))
+                print(str(datetime.datetime.now()) + ' :: SEND MESSAGE to ' + client.request.remote_ip)
+                information.tmp = message
+                print (str(message))
 
 
 
