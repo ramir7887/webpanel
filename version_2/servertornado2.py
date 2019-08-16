@@ -160,6 +160,57 @@ class Command:
                 client.write_message(listfiles)
         print('SEND list_file: '+ str(listfiles))
 
+    def auto_selection_file( self, parameters):
+        name_file = parameters['name_file']
+        platform = sys.platform
+        path = os.getcwd()
+        if platform == 'win32' or platform == 'win64':
+            print(path)
+            fullpath = path + '\\programs\\'
+            print(fullpath)
+        else:
+            fullpath = path + '/programs/'
+        if name_file in os.listdir(fullpath):
+            print( 'File {0} exists in {1}'.format(name_file, fullpath))
+            # self.c.mode(linuxcnc.MODE_AUTO)
+            # self.c.program_open(fullpath + name_file)
+        else:
+            print( 'File {0} does NOT exist in {1}'.format(name_file, fullpath))
+
+    def auto_run_file(self, parameters):
+        # self.s.poll()
+        # if self.s.file():
+        #     self.c.auto(linuxcnc.AUTO_RUN, 1)
+        print('AUTO_RUN_FILE : ')
+    
+    def auto_pause(self, parameters):
+        # self.c.auto(linuxcnc.AUTO_PAUSE)
+        print('AUTO_PAUSE_DEF')
+
+    def auto_resume(self, parameters):
+        # self.c.auto(linuxcnc.AUTO_RESUME)
+        print('AUTO_RESUME_DEF')
+
+    def auto_step(self, parameters):
+        # self.c.auto(linuxcnc.AUTO_STEP)
+        print('AUTO_STEP_DEF')
+
+    def state_estop(self, parameters):
+        # self.c.state(linuxcnc.STATE_ESTOP)
+        print('STATE_ESTOP_DEF')
+    
+    def state_estop_reset(self, parameters):
+        # self.c.state(linuxcnc.STATE_ESTOP_RESET)
+        print('STATE_ESTOP_RESET_DEF')
+
+    def state_on(self, parameters):
+        # self.c.state(linuxcnc.STATE_ON)
+        print('STATE_ON_DEF')
+
+    def state_off(self, parameters):
+        # self.c.state(linuxcnc.STATE_OFF)
+        print('STATE_OFF_DEF')
+
     dict_command = {'move_axis': move_axis,
                     'home_all': home_all,
                     'home_axis': home_axis,
@@ -170,7 +221,16 @@ class Command:
                     'send_command': send_command,
                     'auto_on': auto_on,
                     'send_file': send_file,
-                    'mdi_command': mdi_command
+                    'mdi_command': mdi_command,
+                    'auto_run_file': auto_run_file,
+                    'auto_pause': auto_pause,
+                    'auto_resume': auto_resume,
+                    'auto_step': auto_step,
+                    'state_estop': state_estop,
+                    'state_estop_reset': state_estop_reset,
+                    'state_on': state_on,
+                    'state_off': state_off
+
                     }
 
 clients = [] # Список для клиентов подключающихся к серверу
@@ -263,8 +323,6 @@ class Upload(tornado.web.RequestHandler):
         self.finish(cname + " is uploaded!! Check %s folder" % __UPLOADS__)
 
 
-
-
 ##############################################
 ##############################################
 ##############################################
@@ -286,9 +344,6 @@ def send_info():  # Отправляет информацию клиенту
                 information.tmp = message
                 print (str(message))
 
-
-
-
 application = tornado.web.Application([
     (r"/ws", WebSocketHandler),
     (r"/", Userform),
@@ -306,11 +361,6 @@ def counter():
     count = count + 1
     message = 'Отправляю информации о работе станка клиенту! Уже в {0} раз!'.format(count)
     return message
-
-
-
-        
-        
 
 if __name__ == "__main__":
     http_server = tornado.httpserver.HTTPServer(application)
