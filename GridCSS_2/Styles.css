@@ -237,7 +237,9 @@ html, body, .grid-container { height: 100%; margin: 0; }
   vertical-align: middle;s
 }
 
-.Name { grid-area: Name; }
+.Name { 
+  grid-area: Name;
+}
 
 .RapidOverride {
   display: grid;
