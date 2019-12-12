@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/styles/Streams.xsl"?>
+<MTConnectStreams xmlns:m="urn:mtconnect.org:MTConnectStreams:1.3" xmlns="urn:mtconnect.org:MTConnectStreams:1.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:mtconnect.org:MTConnectStreams:1.3 /schemas/MTConnectStreams_1.3.xsd">
+  <Header creationTime="2019-11-15T15:43:50Z" sender="DESKTOP-IRTBG45" instanceId="1573832619" version="1.3.0.17" bufferSize="1048576" nextSequence="264" firstSequence="1" lastSequence="263"/>
+  <Streams>
+    <DeviceStream name="GFAgie01" uuid="mtc_adapter001">
+      <ComponentStream component="Device" name="GFAgie01" componentId="GFAgie01">
+        <Events>
+          <Availability dataItemId="GFAgie01-dtop_1" timestamp="2019-11-15T15:43:39.709904Z" name="avail" sequence="15">UNAVAILABLE</Availability>
+          <EmergencyStop dataItemId="GFAgie01-dtop_2" timestamp="2019-11-15T15:43:39.709904Z" name="estop" sequence="16">UNAVAILABLE</EmergencyStop>
+          <AssetChanged dataItemId="GFAgie01_asset_chg" timestamp="2019-11-15T15:43:39.709904Z" sequence="24" assetType="">UNAVAILABLE</AssetChanged>
+          <AssetRemoved dataItemId="GFAgie01_asset_rem" timestamp="2019-11-15T15:43:39.709904Z" sequence="25" assetType="">UNAVAILABLE</AssetRemoved>
+        </Events>
+        <Condition>
+          <Unavailable dataItemId="GFAgie01-dtop_3" timestamp="2019-11-15T15:43:39.709904Z" name="system" sequence="17" type="SYSTEM"/>
+        </Condition>
+      </ComponentStream>
+      <ComponentStream component="Rotary" name="A" componentId="GFAgie01-A_1">
+        <Samples>
+          <Angle dataItemId="GFAgie01-A_2" timestamp="2019-11-15T15:43:47.589140" name="Aposition" sequence="258" subType="ACTUAL">-121.05</Angle>
+        </Samples>
+      </ComponentStream>
+      <ComponentStream component="Rotary" name="C" componentId="GFAgie01-C_1">
+        <Samples>
+          <Angle dataItemId="GFAgie01-C_2" timestamp="2019-11-15T15:43:50.098207" name="Cposition" sequence="263" subType="ACTUAL">0.0002</Angle>
+        </Samples>
+      </ComponentStream>
+      <ComponentStream component="Linear" name="X" componentId="GFAgie01-X_1">
+        <Samples>
+          <Position dataItemId="GFAgie01-X_2" timestamp="2019-11-15T15:43:39.709904Z" name="Xposition" sequence="3" subType="ACTUAL">UNAVAILABLE</Position>
+        </Samples>
+      </ComponentStream>
+      <ComponentStream component="Linear" name="Y" componentId="GFAgie01-Y_1">
+        <Samples>
+          <Position dataItemId="GFAgie01-Y_2" timestamp="2019-11-15T15:43:39.709904Z" name="Yposition" sequence="4" subType="ACTUAL">UNAVAILABLE</Position>
+        </Samples>
+      </ComponentStream>
+      <ComponentStream component="Linear" name="Z" componentId="GFAgie01-Z_1">
+        <Samples>
+          <Position dataItemId="GFAgie01-Z_2" timestamp="2019-11-15T15:43:39.709904Z" name="Zposition" sequence="5" subType="ACTUAL">UNAVAILABLE</Position>
+        </Samples>
+      </ComponentStream>
+      <ComponentStream component="Controller" name="controller_basic" componentId="GFAgie01-controller_basic_1">
+        <Events>
+          <PathFeedrateOverride dataItemId="GFAgie01-controller_basic_2" timestamp="2019-11-15T15:43:39.709904Z" name="Fovr" sequence="7" subType="OVERRIDE">UNAVAILABLE</PathFeedrateOverride>
+          <RotaryVelocityOverride dataItemId="GFAgie01-controller_basic_3" timestamp="2019-11-15T15:43:39.709904Z" name="Sovr" sequence="8">UNAVAILABLE</RotaryVelocityOverride>
+        </Events>
+        <Condition>
+          <Unavailable dataItemId="GFAgie01-controller_basic_10" timestamp="2019-11-15T15:43:39.709904Z" name="cnc_temp" sequence="6" type="TEMPERATURE"/>
+          <Unavailable dataItemId="GFAgie01-controller_basic_4" timestamp="2019-11-15T15:43:39.709904Z" name="servo" sequence="9" type="ACTUATOR"/>
+          <Unavailable dataItemId="GFAgie01-controller_basic_5" timestamp="2019-11-15T15:43:39.709904Z" name="comms" sequence="10" type="COMMUNICATIONS"/>
+          <Unavailable dataItemId="GFAgie01-controller_basic_6" timestamp="2019-11-15T15:43:39.709904Z" name="pneumatic" sequence="11" type="COMMUNICATIONS"/>
+          <Unavailable dataItemId="GFAgie01-controller_basic_7" timestamp="2019-11-15T15:43:39.709904Z" name="hydraulic" sequence="12" type="COMMUNICATIONS"/>
+          <Unavailable dataItemId="GFAgie01-controller_basic_8" timestamp="2019-11-15T15:43:39.709904Z" name="logic" sequence="13" type="LOGIC_PROGRAM"/>
+          <Unavailable dataItemId="GFAgie01-controller_basic_9" timestamp="2019-11-15T15:43:39.709904Z" name="motion" sequence="14" type="MOTION_PROGRAM"/>
+        </Condition>
+      </ComponentStream>
+      <ComponentStream component="Path" name="path_basic" componentId="GFAgie01-path_basic_1">
+        <Samples>
+          <PathPosition dataItemId="GFAgie01-path_basic_7" timestamp="2019-11-15T15:43:49.595626" name="path_pos" sequence="262">-17.8479900000 18.9936600000 4.3126900000</PathPosition>
+        </Samples>
+        <Events>
+          <Execution dataItemId="GFAgie01-path_basic_2" timestamp="2019-11-15T15:43:39.709904Z" name="execution" sequence="18">UNAVAILABLE</Execution>
+          <ControllerMode dataItemId="GFAgie01-path_basic_3" timestamp="2019-11-15T15:43:39.709904Z" name="mode" sequence="19">UNAVAILABLE</ControllerMode>
+          <Program dataItemId="GFAgie01-path_basic_4" timestamp="2019-11-15T15:43:39.709904Z" name="program" sequence="20">UNAVAILABLE</Program>
+          <Line dataItemId="GFAgie01-path_basic_5" timestamp="2019-11-15T15:43:39.709904Z" name="line" sequence="21">UNAVAILABLE</Line>
+          <Motion dataItemId="GFAgie01-path_basic_6" timestamp="2019-11-15T15:43:39.709904Z" name="move" sequence="22">UNAVAILABLE</Motion>
+        </Events>
+      </ComponentStream>
+    </DeviceStream>
+    <DeviceStream name="Hurco01" uuid="mtc_adapter005">
+      <ComponentStream component="Device" name="Hurco01" componentId="Hurco01">
+        <Events>
+          <Availability dataItemId="Hurco01-dtop_1" timestamp="2019-11-15T15:43:39.709904Z" name="avail" sequence="161">UNAVAILABLE</Availability>
+          <AssetChanged dataItemId="Hurco01_asset_chg" timestamp="2019-11-15T15:43:39.709904Z" sequence="173" assetType="">UNAVAILABLE</AssetChanged>
+          <AssetRemoved dataItemId="Hurco01_asset_rem" timestamp="2019-11-15T15:43:39.709904Z" sequence="174" assetType="">UNAVAILABLE</AssetRemoved>
+        </Events>
+      </ComponentStream>
+      <ComponentStream component="Rotary" name="C" componentId="Hurco01-C">
+        <Samples>
+          <RotaryVelocity dataItemId="Hurco01-C_1" timestamp="2019-11-15T15:43:39.709904Z" name="Spindle_Speed" sequence="158" subType="ACTUAL">UNAVAILABLE</RotaryVelocity>
+        </Samples>
+        <Events>
+          <RotaryVelocityOverride dataItemId="Hurco01-C_2" timestamp="2019-11-15T15:43:39.709904Z" name="Spindle_Override" sequence="159">UNAVAILABLE</RotaryVelocityOverride>
+        </Events>
+      </ComponentStream>
+      <ComponentStream component="Controller" name="controller" componentId="Hurco01-controller">
+        <Events>
+          <EmergencyStop dataItemId="Hurco01-controller_1" timestamp="2019-11-15T15:43:39.709904Z" name="EStop_State" sequence="160">UNAVAILABLE</EmergencyStop>
+        </Events>
+      </ComponentStream>
+      <ComponentStream component="Path" name="Path" componentId="Hurco01-path">
+        <Samples>
+          <PathFeedrateOverride dataItemId="Hurco01-path_10" timestamp="2019-11-15T15:43:39.709904Z" name="Feed_Override" sequence="163">UNAVAILABLE</PathFeedrateOverride>
+          <PathFeedrateOverride dataItemId="Hurco01-path_11" timestamp="2019-11-15T15:43:39.709904Z" name="Rapid_Override" sequence="164" subType="RAPID">UNAVAILABLE</PathFeedrateOverride>
+          <AccumulatedTime dataItemId="Hurco01-path_7" timestamp="2019-11-15T15:43:39.709904Z" name="Program_Runtime_Seconds" sequence="170">UNAVAILABLE</AccumulatedTime>
+          <AccumulatedTime dataItemId="Hurco01-path_8" timestamp="2019-11-15T15:43:39.709904Z" name="Spindle_Time" sequence="171">UNAVAILABLE</AccumulatedTime>
+          <PathFeedrate dataItemId="Hurco01-path_9" timestamp="2019-11-15T15:43:39.709904Z" name="Feed_Rate" sequence="172" subType="ACTUAL">UNAVAILABLE</PathFeedrate>
+        </Samples>
+        <Events>
+          <Line dataItemId="Hurco01-path_1" timestamp="2019-11-15T15:43:39.709904Z" name="Block_Number" sequence="162">UNAVAILABLE</Line>
+          <Program dataItemId="Hurco01-path_2" timestamp="2019-11-15T15:43:39.709904Z" name="Program_Name_Running" sequence="165">UNAVAILABLE</Program>
+          <ProgramEditName dataItemId="Hurco01-path_3" timestamp="2019-11-15T15:43:39.709904Z" name="Program_Name_Editing" sequence="166">UNAVAILABLE</ProgramEditName>
+          <PartCount dataItemId="Hurco01-path_4" timestamp="2019-11-15T15:43:39.709904Z" name="Part_Count" sequence="167" subType="ALL">UNAVAILABLE</PartCount>
+          <Execution dataItemId="Hurco01-path_5" timestamp="2019-11-15T15:43:39.709904Z" name="Program_Status" sequence="168">UNAVAILABLE</Execution>
+          <ToolNumber dataItemId="Hurco01-path_6" timestamp="2019-11-15T15:43:39.709904Z" name="Current_Tool" sequence="169">UNAVAILABLE</ToolNumber>
+        </Events>
+      </ComponentStream>
+    </DeviceStream>
+    <DeviceStream name="Hurco02" uuid="mtc_adapter006">
+      <ComponentStream component="Device" name="Hurco02" componentId="Hurco02">
+        <Events>
+          <Availability dataItemId="Hurco02-dtop_1" timestamp="2019-11-15T15:43:39.709904Z" name="avail" sequence="178">UNAVAILABLE</Availability>
+          <AssetChanged dataItemId="Hurco02_asset_chg" timestamp="2019-11-15T15:43:39.709904Z" sequence="190" assetType="">UNAVAILABLE</AssetChanged>
+          <AssetRemoved dataItemId="Hurco02_asset_rem" timestamp="2019-11-15T15:43:39.709904Z" sequence="191" assetType="">UNAVAILABLE</AssetRemoved>
+        </Events>
+      </ComponentStream>
+      <ComponentStream component="Rotary" name="C" componentId="Hurco02-C">
+        <Samples>
+          <RotaryVelocity dataItemId="Hurco02-C_1" timestamp="2019-11-15T15:43:39.709904Z" name="Spindle_Speed" sequence="175" subType="ACTUAL">UNAVAILABLE</RotaryVelocity>
+        </Samples>
+        <Events>
+          <RotaryVelocityOverride dataItemId="Hurco02-C_2" timestamp="2019-11-15T15:43:39.709904Z" name="Spindle_Override" sequence="176">UNAVAILABLE</RotaryVelocityOverride>
+        </Events>
+      </ComponentStream>
+      <ComponentStream component="Controller" name="controller" componentId="Hurco02-controller">
+        <Events>
+          <EmergencyStop dataItemId="Hurco02-controller_1" timestamp="2019-11-15T15:43:39.709904Z" name="EStop_State" sequence="177">UNAVAILABLE</EmergencyStop>
+        </Events>
+      </ComponentStream>
+      <ComponentStream component="Path" name="Path" componentId="Hurco02-path">
+        <Samples>
+          <PathFeedrateOverride dataItemId="Hurco02-path_10" timestamp="2019-11-15T15:43:39.709904Z" name="Feed_Override" sequence="180">UNAVAILABLE</PathFeedrateOverride>
+          <PathFeedrateOverride dataItemId="Hurco02-path_11" timestamp="2019-11-15T15:43:39.709904Z" name="Rapid_Override" sequence="181" subType="RAPID">UNAVAILABLE</PathFeedrateOverride>
+          <AccumulatedTime dataItemId="Hurco02-path_7" timestamp="2019-11-15T15:43:39.709904Z" name="Program_Runtime_Seconds" sequence="187">UNAVAILABLE</AccumulatedTime>
+          <AccumulatedTime dataItemId="Hurco02-path_8" timestamp="2019-11-15T15:43:39.709904Z" name="Spindle_Time" sequence="188">UNAVAILABLE</AccumulatedTime>
+          <PathFeedrate dataItemId="Hurco02-path_9" timestamp="2019-11-15T15:43:39.709904Z" name="Feed_Rate" sequence="189" subType="ACTUAL">UNAVAILABLE</PathFeedrate>
+        </Samples>
+        <Events>
+          <Line dataItemId="Hurco02-path_1" timestamp="2019-11-15T15:43:39.709904Z" name="Block_Number" sequence="179">UNAVAILABLE</Line>
+          <Program dataItemId="Hurco02-path_2" timestamp="2019-11-15T15:43:39.709904Z" name="Program_Name_Running" sequence="182">UNAVAILABLE</Program>
+          <ProgramEditName dataItemId="Hurco02-path_3" timestamp="2019-11-15T15:43:39.709904Z" name="Program_Name_Editing" sequence="183">UNAVAILABLE</ProgramEditName>
+          <PartCount dataItemId="Hurco02-path_4" timestamp="2019-11-15T15:43:39.709904Z" name="Part_Count" sequence="184" subType="ALL">UNAVAILABLE</PartCount>
+          <Execution dataItemId="Hurco02-path_5" timestamp="2019-11-15T15:43:39.709904Z" name="Program_Status" sequence="185">UNAVAILABLE</Execution>
+          <ToolNumber dataItemId="Hurco02-path_6" timestamp="2019-11-15T15:43:39.709904Z" name="Current_Tool" sequence="186">UNAVAILABLE</ToolNumber>
+        </Events>
+      </ComponentStream>
+    </DeviceStream>
+    <DeviceStream name="Hurco03" uuid="mtc_adapter007">
+      <ComponentStream component="Device" name="Hurco03" componentId="Hurco03">
+        <Events>
+          <Availability dataItemId="Hurco03-dtop_1" timestamp="2019-11-15T15:43:39.709904Z" name="avail" sequence="195">UNAVAILABLE</Availability>
+          <AssetChanged dataItemId="Hurco03_asset_chg" timestamp="2019-11-15T15:43:39.709904Z" sequence="207" assetType="">UNAVAILABLE</AssetChanged>
+          <AssetRemoved dataItemId="Hurco03_asset_rem" timestamp="2019-11-15T15:43:39.709904Z" sequence="208" assetType="">UNAVAILABLE</AssetRemoved>
+        </Events>
+      </ComponentStream>
+      <ComponentStream component="Rotary" name="C" componentId="Hurco03-C">
+        <Samples>
+          <RotaryVelocity dataItemId="Hurco03-C_1" timestamp="2019-11-15T15:43:39.709904Z" name="Spindle_Speed" sequence="192" subType="ACTUAL">UNAVAILABLE</RotaryVelocity>
+        </Samples>
+        <Events>
+          <RotaryVelocityOverride dataItemId="Hurco03-C_2" timestamp="2019-11-15T15:43:39.709904Z" name="Spindle_Override" sequence="193">UNAVAILABLE</RotaryVelocityOverride>
+        </Events>
+      </ComponentStream>
+      <ComponentStream component="Controller" name="controller" componentId="Hurco03-controller">
+        <Events>
+          <EmergencyStop dataItemId="Hurco03-controller_1" timestamp="2019-11-15T15:43:39.709904Z" name="EStop_State" sequence="194">UNAVAILABLE</EmergencyStop>
+        </Events>
+      </ComponentStream>
+      <ComponentStream component="Path" name="Path" componentId="Hurco03-path">
+        <Samples>
+          <PathFeedrateOverride dataItemId="Hurco03-path_10" timestamp="2019-11-15T15:43:39.709904Z" name="Feed_Override" sequence="197">UNAVAILABLE</PathFeedrateOverride>
+          <PathFeedrateOverride dataItemId="Hurco03-path_11" timestamp="2019-11-15T15:43:39.709904Z" name="Rapid_Override" sequence="198" subType="RAPID">UNAVAILABLE</PathFeedrateOverride>
+          <AccumulatedTime dataItemId="Hurco03-path_7" timestamp="2019-11-15T15:43:39.709904Z" name="Program_Runtime_Seconds" sequence="204">UNAVAILABLE</AccumulatedTime>
+          <AccumulatedTime dataItemId="Hurco03-path_8" timestamp="2019-11-15T15:43:39.709904Z" name="Spindle_Time" sequence="205">UNAVAILABLE</AccumulatedTime>
+          <PathFeedrate dataItemId="Hurco03-path_9" timestamp="2019-11-15T15:43:39.709904Z" name="Feed_Rate" sequence="206" subType="ACTUAL">UNAVAILABLE</PathFeedrate>
+        </Samples>
+        <Events>
+          <Line dataItemId="Hurco03-path_1" timestamp="2019-11-15T15:43:39.709904Z" name="Block_Number" sequence="196">UNAVAILABLE</Line>
+          <Program dataItemId="Hurco03-path_2" timestamp="2019-11-15T15:43:39.709904Z" name="Program_Name_Running" sequence="199">UNAVAILABLE</Program>
+          <ProgramEditName dataItemId="Hurco03-path_3" timestamp="2019-11-15T15:43:39.709904Z" name="Program_Name_Editing" sequence="200">UNAVAILABLE</ProgramEditName>
+          <PartCount dataItemId="Hurco03-path_4" timestamp="2019-11-15T15:43:39.709904Z" name="Part_Count" sequence="201" subType="ALL">UNAVAILABLE</PartCount>
+          <Execution dataItemId="Hurco03-path_5" timestamp="2019-11-15T15:43:39.709904Z" name="Program_Status" sequence="202">UNAVAILABLE</Execution>
+          <ToolNumber dataItemId="Hurco03-path_6" timestamp="2019-11-15T15:43:39.709904Z" name="Current_Tool" sequence="203">UNAVAILABLE</ToolNumber>
+        </Events>
+      </ComponentStream>
+    </DeviceStream>
+    <DeviceStream name="Hurco04" uuid="mtc_adapter008">
+      <ComponentStream component="Device" name="Hurco04" componentId="Hurco04">
+        <Events>
+          <Availability dataItemId="Hurco04-dtop_1" timestamp="2019-11-15T15:43:39.709904Z" name="avail" sequence="212">UNAVAILABLE</Availability>
+          <AssetChanged dataItemId="Hurco04_asset_chg" timestamp="2019-11-15T15:43:39.709904Z" sequence="224" assetType="">UNAVAILABLE</AssetChanged>
+          <AssetRemoved dataItemId="Hurco04_asset_rem" timestamp="2019-11-15T15:43:39.709904Z" sequence="225" assetType="">UNAVAILABLE</AssetRemoved>
+        </Events>
+      </ComponentStream>
+      <ComponentStream component="Rotary" name="C" componentId="Hurco04-C">
+        <Samples>
+          <RotaryVelocity dataItemId="Hurco04-C_1" timestamp="2019-11-15T15:43:39.709904Z" name="Spindle_Speed" sequence="209" subType="ACTUAL">UNAVAILABLE</RotaryVelocity>
+        </Samples>
+        <Events>
+          <RotaryVelocityOverride dataItemId="Hurco04-C_2" timestamp="2019-11-15T15:43:39.709904Z" name="Spindle_Override" sequence="210">UNAVAILABLE</RotaryVelocityOverride>
+        </Events>
+      </ComponentStream>
+      <ComponentStream component="Controller" name="controller" componentId="Hurco04-controller">
+        <Events>
+          <EmergencyStop dataItemId="Hurco04-controller_1" timestamp="2019-11-15T15:43:39.709904Z" name="EStop_State" sequence="211">UNAVAILABLE</EmergencyStop>
+        </Events>
+      </ComponentStream>
+      <ComponentStream component="Path" name="Path" componentId="Hurco04-path">
+        <Samples>
+          <PathFeedrateOverride dataItemId="Hurco04-path_10" timestamp="2019-11-15T15:43:39.709904Z" name="Feed_Override" sequence="214">UNAVAILABLE</PathFeedrateOverride>
+          <PathFeedrateOverride dataItemId="Hurco04-path_11" timestamp="2019-11-15T15:43:39.709904Z" name="Rapid_Override" sequence="215" subType="RAPID">UNAVAILABLE</PathFeedrateOverride>
+          <AccumulatedTime dataItemId="Hurco04-path_7" timestamp="2019-11-15T15:43:39.709904Z" name="Program_Runtime_Seconds" sequence="221">UNAVAILABLE</AccumulatedTime>
+          <AccumulatedTime dataItemId="Hurco04-path_8" timestamp="2019-11-15T15:43:39.709904Z" name="Spindle_Time" sequence="222">UNAVAILABLE</AccumulatedTime>
+          <PathFeedrate dataItemId="Hurco04-path_9" timestamp="2019-11-15T15:43:39.709904Z" name="Feed_Rate" sequence="223" subType="ACTUAL">UNAVAILABLE</PathFeedrate>
+        </Samples>
+        <Events>
+          <Line dataItemId="Hurco04-path_1" timestamp="2019-11-15T15:43:39.709904Z" name="Block_Number" sequence="213">UNAVAILABLE</Line>
+          <Program dataItemId="Hurco04-path_2" timestamp="2019-11-15T15:43:39.709904Z" name="Program_Name_Running" sequence="216">UNAVAILABLE</Program>
+          <ProgramEditName dataItemId="Hurco04-path_3" timestamp="2019-11-15T15:43:39.709904Z" name="Program_Name_Editing" sequence="217">UNAVAILABLE</ProgramEditName>
+          <PartCount dataItemId="Hurco04-path_4" timestamp="2019-11-15T15:43:39.709904Z" name="Part_Count" sequence="218" subType="ALL">UNAVAILABLE</PartCount>
+          <Execution dataItemId="Hurco04-path_5" timestamp="2019-11-15T15:43:39.709904Z" name="Program_Status" sequence="219">UNAVAILABLE</Execution>
+          <ToolNumber dataItemId="Hurco04-path_6" timestamp="2019-11-15T15:43:39.709904Z" name="Current_Tool" sequence="220">UNAVAILABLE</ToolNumber>
+        </Events>
+      </ComponentStream>
+    </DeviceStream>
+    <DeviceStream name="Hurco06" uuid="mtc_adapter010">
+      <ComponentStream component="Device" name="Hurco06" componentId="Hurco06">
+        <Events>
+          <Availability dataItemId="Hurco06-dtop_1" timestamp="2019-11-15T15:43:39.709904Z" name="avail" sequence="229">UNAVAILABLE</Availability>
+          <AssetChanged dataItemId="Hurco06_asset_chg" timestamp="2019-11-15T15:43:39.709904Z" sequence="241" assetType="">UNAVAILABLE</AssetChanged>
+          <AssetRemoved dataItemId="Hurco06_asset_rem" timestamp="2019-11-15T15:43:39.709904Z" sequence="242" assetType="">UNAVAILABLE</AssetRemoved>
+        </Events>
+      </ComponentStream>
+      <ComponentStream component="Rotary" name="C" componentId="Hurco06-C">
+        <Samples>
+          <RotaryVelocity dataItemId="Hurco06-C_1" timestamp="2019-11-15T15:43:39.709904Z" name="Spindle_Speed" sequence="226" subType="ACTUAL">UNAVAILABLE</RotaryVelocity>
+        </Samples>
+        <Events>
+          <RotaryVelocityOverride dataItemId="Hurco06-C_2" timestamp="2019-11-15T15:43:39.709904Z" name="Spindle_Override" sequence="227">UNAVAILABLE</RotaryVelocityOverride>
+        </Events>
+      </ComponentStream>
+      <ComponentStream component="Controller" name="controller" componentId="Hurco06-controller">
+        <Events>
+          <EmergencyStop dataItemId="Hurco06-controller_1" timestamp="2019-11-15T15:43:39.709904Z" name="EStop_State" sequence="228">UNAVAILABLE</EmergencyStop>
+        </Events>
+      </ComponentStream>
+      <ComponentStream component="Path" name="Path" componentId="Hurco06-path">
+        <Samples>
+          <PathFeedrateOverride dataItemId="Hurco06-path_10" timestamp="2019-11-15T15:43:39.709904Z" name="Feed_Override" sequence="231">UNAVAILABLE</PathFeedrateOverride>
+          <PathFeedrateOverride dataItemId="Hurco06-path_11" timestamp="2019-11-15T15:43:39.709904Z" name="Rapid_Override" sequence="232" subType="RAPID">UNAVAILABLE</PathFeedrateOverride>
+          <AccumulatedTime dataItemId="Hurco06-path_7" timestamp="2019-11-15T15:43:39.709904Z" name="Program_Runtime_Seconds" sequence="238">UNAVAILABLE</AccumulatedTime>
+          <AccumulatedTime dataItemId="Hurco06-path_8" timestamp="2019-11-15T15:43:39.709904Z" name="Spindle_Time" sequence="239">UNAVAILABLE</AccumulatedTime>
+          <PathFeedrate dataItemId="Hurco06-path_9" timestamp="2019-11-15T15:43:39.709904Z" name="Feed_Rate" sequence="240" subType="ACTUAL">UNAVAILABLE</PathFeedrate>
+        </Samples>
+        <Events>
+          <Line dataItemId="Hurco06-path_1" timestamp="2019-11-15T15:43:39.709904Z" name="Block_Number" sequence="230">UNAVAILABLE</Line>
+          <Program dataItemId="Hurco06-path_2" timestamp="2019-11-15T15:43:39.709904Z" name="Program_Name_Running" sequence="233">UNAVAILABLE</Program>
+          <ProgramEditName dataItemId="Hurco06-path_3" timestamp="2019-11-15T15:43:39.709904Z" name="Program_Name_Editing" sequence="234">UNAVAILABLE</ProgramEditName>
+          <PartCount dataItemId="Hurco06-path_4" timestamp="2019-11-15T15:43:39.709904Z" name="Part_Count" sequence="235" subType="ALL">UNAVAILABLE</PartCount>
+          <Execution dataItemId="Hurco06-path_5" timestamp="2019-11-15T15:43:39.709904Z" name="Program_Status" sequence="236">UNAVAILABLE</Execution>
+          <ToolNumber dataItemId="Hurco06-path_6" timestamp="2019-11-15T15:43:39.709904Z" name="Current_Tool" sequence="237">UNAVAILABLE</ToolNumber>
+        </Events>
+      </ComponentStream>
+    </DeviceStream>
+    <DeviceStream name="Mazak01" uuid="mtc_adapter002">
+      <ComponentStream component="Device" name="Mazak01" componentId="Mazak01">
+        <Events>
+          <Availability dataItemId="Mazak01-dtop_1" timestamp="2019-11-15T15:43:39.709904Z" name="avail" sequence="65">UNAVAILABLE</Availability>
+          <AssetChanged dataItemId="Mazak01_asset_chg" timestamp="2019-11-15T15:43:39.709904Z" sequence="91" assetType="">UNAVAILABLE</AssetChanged>
+          <AssetRemoved dataItemId="Mazak01_asset_rem" timestamp="2019-11-15T15:43:39.709904Z" sequence="92" assetType="">UNAVAILABLE</AssetRemoved>
+        </Events>
+      </ComponentStream>
+      <ComponentStream component="Rotary" name="B" componentId="Mazak01-B">
+        <Samples>
+          <Load dataItemId="Mazak01-B_1" timestamp="2019-11-15T15:43:39.709904Z" name="Bload" sequence="26">UNAVAILABLE</Load>
+          <AngularVelocity dataItemId="Mazak01-B_2" timestamp="2019-11-15T15:43:39.709904Z" name="Bfrt" sequence="27">UNAVAILABLE</AngularVelocity>
+          <Angle dataItemId="Mazak01-B_4" timestamp="2019-11-15T15:43:39.709904Z" name="Bdeg" sequence="29" subType="ACTUAL">UNAVAILABLE</Angle>
+        </Samples>
+        <Condition>
+          <Unavailable dataItemId="Mazak01-B_3" timestamp="2019-11-15T15:43:39.709904Z" name="Btravel" sequence="28" type="ANGLE"/>
+        </Condition>
+      </ComponentStream>
+      <ComponentStream component="Rotary" name="C" componentId="Mazak01-C">
+        <Samples>
+          <Load dataItemId="Mazak01-C_1" timestamp="2019-11-15T15:43:39.709904Z" name="Cload" sequence="35">UNAVAILABLE</Load>
+          <Load dataItemId="Mazak01-C_2" timestamp="2019-11-15T15:43:39.709904Z" name="Sload" sequence="37">UNAVAILABLE</Load>
+          <AngularVelocity dataItemId="Mazak01-C_4" timestamp="2019-11-15T15:43:39.709904Z" name="Cfrt" sequence="39">UNAVAILABLE</AngularVelocity>
+          <RotaryVelocity dataItemId="Mazak01-C_5" timestamp="2019-11-15T15:43:39.709904Z" name="Srpm" sequence="40" subType="ACTUAL">UNAVAILABLE</RotaryVelocity>
+          <Temperature dataItemId="Mazak01-C_7" timestamp="2019-11-15T15:43:39.709904Z" name="Stemp" sequence="42">UNAVAILABLE</Temperature>
+          <Angle dataItemId="Mazak01-C_8" timestamp="2019-11-15T15:43:39.709904Z" name="Cdeg" sequence="43" subType="ACTUAL">UNAVAILABLE</Angle>
+        </Samples>
+        <Events>
+          <RotaryVelocityOverride dataItemId="Mazak01-C_6" timestamp="2019-11-15T15:43:39.709904Z" name="Sovr" sequence="41">UNAVAILABLE</RotaryVelocityOverride>
+        </Events>
+        <Condition>
+          <Unavailable dataItemId="Mazak01-C_10" timestamp="2019-11-15T15:43:39.709904Z" name="Stemp_cond" sequence="36" type="TEMPERATURE"/>
+          <Unavailable dataItemId="Mazak01-C_3" timestamp="2019-11-15T15:43:39.709904Z" name="Ctravel" sequence="38" type="ANGLE"/>
+          <Unavailable dataItemId="Mazak01-C_9" timestamp="2019-11-15T15:43:39.709904Z" name="Sload_cond" sequence="44" type="LOAD"/>
+        </Condition>
+      </ComponentStream>
+      <ComponentStream component="Rotary" name="C" componentId="Mazak01-C2">
+        <Samples>
+          <Load dataItemId="Mazak01-C2_1" timestamp="2019-11-15T15:43:39.709904Z" name="S2load" sequence="30">UNAVAILABLE</Load>
+          <RotaryVelocity dataItemId="Mazak01-C2_2" timestamp="2019-11-15T15:43:39.709904Z" name="S2rpm" sequence="31" subType="ACTUAL">UNAVAILABLE</RotaryVelocity>
+          <Temperature dataItemId="Mazak01-C2_3" timestamp="2019-11-15T15:43:39.709904Z" name="S2temp" sequence="32">UNAVAILABLE</Temperature>
+        </Samples>
+        <Condition>
+          <Unavailable dataItemId="Mazak01-C2_4" timestamp="2019-11-15T15:43:39.709904Z" name="S2load_cond" sequence="33" type="LOAD"/>
+          <Unavailable dataItemId="Mazak01-C2_5" timestamp="2019-11-15T15:43:39.709904Z" name="S2temp_cond" sequence="34" type="TEMPERATURE"/>
+        </Condition>
+      </ComponentStream>
+      <ComponentStream component="Linear" name="X" componentId="Mazak01-X">
+        <Samples>
+          <Position dataItemId="Mazak01-X_1" timestamp="2019-11-15T15:43:39.709904Z" name="Xabs" sequence="45" subType="ACTUAL">UNAVAILABLE</Position>
+          <Load dataItemId="Mazak01-X_3" timestamp="2019-11-15T15:43:39.709904Z" name="Xload" sequence="47">UNAVAILABLE</Load>
+          <AxisFeedrate dataItemId="Mazak01-X_4" timestamp="2019-11-15T15:43:39.709904Z" name="Xfrt" sequence="48">UNAVAILABLE</AxisFeedrate>
+        </Samples>
+        <Condition>
+          <Unavailable dataItemId="Mazak01-X_2" timestamp="2019-11-15T15:43:39.709904Z" name="Xtravel" sequence="46" type="POSITION"/>
+        </Condition>
+      </ComponentStream>
+      <ComponentStream component="Linear" name="Y" componentId="Mazak01-Y">
+        <Samples>
+          <Position dataItemId="Mazak01-Y_1" timestamp="2019-11-15T15:43:39.709904Z" name="Yabs" sequence="49" subType="ACTUAL">UNAVAILABLE</Position>
+          <Load dataItemId="Mazak01-Y_3" timestamp="2019-11-15T15:43:39.709904Z" name="Yload" sequence="51">UNAVAILABLE</Load>
+          <AxisFeedrate dataItemId="Mazak01-Y_4" timestamp="2019-11-15T15:43:39.709904Z" name="Yfrt" sequence="52">UNAVAILABLE</AxisFeedrate>
+        </Samples>
+        <Condition>
+          <Unavailable dataItemId="Mazak01-Y_2" timestamp="2019-11-15T15:43:39.709904Z" name="Ytravel" sequence="50" type="POSITION"/>
+        </Condition>
+      </ComponentStream>
+      <ComponentStream component="Linear" name="Z" componentId="Mazak01-Z">
+        <Samples>
+          <Position dataItemId="Mazak01-Z_1" timestamp="2019-11-15T15:43:39.709904Z" name="Zabs" sequence="53" subType="ACTUAL">UNAVAILABLE</Position>
+          <Load dataItemId="Mazak01-Z_3" timestamp="2019-11-15T15:43:39.709904Z" name="Zload" sequence="55">UNAVAILABLE</Load>
+          <AxisFeedrate dataItemId="Mazak01-Z_4" timestamp="2019-11-15T15:43:39.709904Z" name="Zfrt" sequence="56">UNAVAILABLE</AxisFeedrate>
+        </Samples>
+        <Condition>
+          <Unavailable dataItemId="Mazak01-Z_2" timestamp="2019-11-15T15:43:39.709904Z" name="Ztravel" sequence="54" type="POSITION"/>
+        </Condition>
+      </ComponentStream>
+      <ComponentStream component="Axes" name="base" componentId="Mazak01-base">
+        <Condition>
+          <Unavailable dataItemId="Mazak01-base_1" timestamp="2019-11-15T15:43:39.709904Z" name="servo_cond" sequence="57" type="ACTUATOR"/>
+        </Condition>
+      </ComponentStream>
+      <ComponentStream component="Controller" name="controller" componentId="Mazak01-controller">
+        <Events>
+          <EmergencyStop dataItemId="Mazak01-controller_4" timestamp="2019-11-15T15:43:39.709904Z" name="estop" sequence="61">UNAVAILABLE</EmergencyStop>
+        </Events>
+        <Condition>
+          <Unavailable dataItemId="Mazak01-controller_1" timestamp="2019-11-15T15:43:39.709904Z" name="comms_cond" sequence="58" type="COMMUNICATIONS"/>
+          <Unavailable dataItemId="Mazak01-controller_2" timestamp="2019-11-15T15:43:39.709904Z" name="logic_cond" sequence="59" type="LOGIC_PROGRAM"/>
+          <Unavailable dataItemId="Mazak01-controller_3" timestamp="2019-11-15T15:43:39.709904Z" name="system_cond" sequence="60" type="SYSTEM"/>
+        </Condition>
+      </ComponentStream>
+      <ComponentStream component="Coolant" name="coolant" componentId="Mazak01-coolant">
+        <Condition>
+          <Unavailable dataItemId="Mazak01-coolant_1" timestamp="2019-11-15T15:43:39.709904Z" name="coolant_pres" sequence="62" type="PRESSURE"/>
+          <Unavailable dataItemId="Mazak01-coolant_2" timestamp="2019-11-15T15:43:39.709904Z" name="coolant_temp" sequence="63" type="TEMPERATURE"/>
+          <Unavailable dataItemId="Mazak01-coolant_3" timestamp="2019-11-15T15:43:39.709904Z" name="coolant_level" sequence="64" type="LEVEL"/>
+        </Condition>
+      </ComponentStream>
+      <ComponentStream component="Electric" name="electric" componentId="Mazak01-electric">
+        <Events>
+          <PowerState dataItemId="Mazak01-electric_1" timestamp="2019-11-15T15:43:39.709904Z" name="power" sequence="66">UNAVAILABLE</PowerState>
+        </Events>
+        <Condition>
+          <Unavailable dataItemId="Mazak01-electric_2" timestamp="2019-11-15T15:43:39.709904Z" name="electric_temp" sequence="67" type="TEMPERATURE"/>
+        </Condition>
+      </ComponentStream>
+      <ComponentStream component="Hydraulic" name="hydraulic" componentId="Mazak01-hydraulic">
+        <Condition>
+          <Unavailable dataItemId="Mazak01-hydraulic_1" timestamp="2019-11-15T15:43:39.709904Z" name="hydra_cond" sequence="68" type="PRESSURE"/>
+        </Condition>
+      </ComponentStream>
+      <ComponentStream component="Path" name="path" componentId="Mazak01-path">
+        <Samples>
+          <AccumulatedTime dataItemId="Mazak01-path_17" timestamp="2019-11-15T15:43:39.709904Z" name="auto_time" sequence="77" subType="x:AUTO">UNAVAILABLE</AccumulatedTime>
+          <AccumulatedTime dataItemId="Mazak01-path_18" timestamp="2019-11-15T15:43:39.709904Z" name="total_time" sequence="78" subType="x:TOTAL">UNAVAILABLE</AccumulatedTime>
+          <AccumulatedTime dataItemId="Mazak01-path_19" timestamp="2019-11-15T15:43:39.709904Z" name="cut_time" sequence="79" subType="x:CUT">UNAVAILABLE</AccumulatedTime>
+          <PathFeedrate dataItemId="Mazak01-path_7" timestamp="2019-11-15T15:43:39.709904Z" name="Fact" sequence="87" subType="ACTUAL">UNAVAILABLE</PathFeedrate>
+        </Samples>
+        <Events>
+          <Program dataItemId="Mazak01-path_1" timestamp="2019-11-15T15:43:39.709904Z" name="program" sequence="69">UNAVAILABLE</Program>
+          <ToolNumber dataItemId="Mazak01-path_10" timestamp="2019-11-15T15:43:39.709904Z" name="Tool_number" sequence="70">UNAVAILABLE</ToolNumber>
+          <ToolGroup dataItemId="Mazak01-path_11" timestamp="2019-11-15T15:43:39.709904Z" name="Tool_group" sequence="71">UNAVAILABLE</ToolGroup>
+          <ToolSuffix dataItemId="Mazak01-path_12" timestamp="2019-11-15T15:43:39.709904Z" name="Tool_suffix" sequence="72">UNAVAILABLE</ToolSuffix>
+          <Execution dataItemId="Mazak01-path_13" timestamp="2019-11-15T15:43:39.709904Z" name="execution" sequence="73">UNAVAILABLE</Execution>
+          <ControllerMode dataItemId="Mazak01-path_14" timestamp="2019-11-15T15:43:39.709904Z" name="mode" sequence="74">UNAVAILABLE</ControllerMode>
+          <ProgramComment dataItemId="Mazak01-path_15" timestamp="2019-11-15T15:43:39.709904Z" name="program_cmt" sequence="75">UNAVAILABLE</ProgramComment>
+          <ProgramComment dataItemId="Mazak01-path_16" timestamp="2019-11-15T15:43:39.709904Z" name="subprogram_cmt" sequence="76" subType="x:SUB">UNAVAILABLE</ProgramComment>
+          <Program dataItemId="Mazak01-path_2" timestamp="2019-11-15T15:43:39.709904Z" name="subprogram" sequence="80" subType="x:SUB">UNAVAILABLE</Program>
+          <Line dataItemId="Mazak01-path_3" timestamp="2019-11-15T15:43:39.709904Z" name="line" sequence="83">UNAVAILABLE</Line>
+          <Unit dataItemId="Mazak01-path_4" timestamp="2019-11-15T15:43:39.709904Z" name="unitNum" sequence="84">UNAVAILABLE</Unit>
+          <SequenceNumber dataItemId="Mazak01-path_5" timestamp="2019-11-15T15:43:39.709904Z" name="sequenceNum" sequence="85">UNAVAILABLE</SequenceNumber>
+          <PartCount dataItemId="Mazak01-path_6" timestamp="2019-11-15T15:43:39.709904Z" name="PartCountAct" sequence="86">UNAVAILABLE</PartCount>
+          <PathFeedrateOverride dataItemId="Mazak01-path_8" timestamp="2019-11-15T15:43:39.709904Z" name="Frapidovr" sequence="88" subType="RAPID">UNAVAILABLE</PathFeedrateOverride>
+          <PathFeedrateOverride dataItemId="Mazak01-path_9" timestamp="2019-11-15T15:43:39.709904Z" name="Fovr" sequence="89" subType="PROGRAMMED">UNAVAILABLE</PathFeedrateOverride>
+        </Events>
+        <Condition>
+          <Unavailable dataItemId="Mazak01-path_20" timestamp="2019-11-15T15:43:39.709904Z" name="motion_cond" sequence="81" type="MOTION_PROGRAM"/>
+          <Unavailable dataItemId="Mazak01-path_21" timestamp="2019-11-15T15:43:39.709904Z" name="path_system" sequence="82" type="SYSTEM"/>
+        </Condition>
+      </ComponentStream>
+      <ComponentStream component="Pneumatic" name="pneumatic" componentId="Mazak01-pneumatic">
+        <Condition>
+          <Unavailable dataItemId="Mazak01-pneumatic_1" timestamp="2019-11-15T15:43:39.709904Z" name="pneu_cond" sequence="90" type="PRESSURE"/>
+        </Condition>
+      </ComponentStream>
+    </DeviceStream>
+    <DeviceStream name="Mazak03" uuid="mtc_adapter004">
+      <ComponentStream component="Device" name="Mazak03" componentId="Mazak03">
+        <Events>
+          <Availability dataItemId="Mazak03-dtop_1" timestamp="2019-11-15T15:43:39.709904Z" name="avail" sequence="123">UNAVAILABLE</Availability>
+          <AssetChanged dataItemId="Mazak03_asset_chg" timestamp="2019-11-15T15:43:39.709904Z" sequence="156" assetType="">UNAVAILABLE</AssetChanged>
+          <AssetRemoved dataItemId="Mazak03_asset_rem" timestamp="2019-11-15T15:43:39.709904Z" sequence="157" assetType="">UNAVAILABLE</AssetRemoved>
+        </Events>
+      </ComponentStream>
+      <ComponentStream component="Rotary" name="C" componentId="Mazak03-C_1">
+        <Samples>
+          <Load dataItemId="Mazak03-C_2" timestamp="2019-11-15T15:43:39.709904Z" name="Cload" sequence="93">UNAVAILABLE</Load>
+          <AngularVelocity dataItemId="Mazak03-C_3" timestamp="2019-11-15T15:43:39.709904Z" name="Cfrt" sequence="94">UNAVAILABLE</AngularVelocity>
+          <Angle dataItemId="Mazak03-C_4" timestamp="2019-11-15T15:43:39.709904Z" name="Cdeg" sequence="95" subType="ACTUAL">UNAVAILABLE</Angle>
+        </Samples>
+        <Condition>
+          <Unavailable dataItemId="Mazak03-C_5" timestamp="2019-11-15T15:43:39.709904Z" name="Ctravel" sequence="96" type="ANGLE"/>
+        </Condition>
+      </ComponentStream>
+      <ComponentStream component="Rotary" name="S2" componentId="Mazak03-S2_1">
+        <Samples>
+          <RotaryVelocity dataItemId="Mazak03-S2_2" timestamp="2019-11-15T15:43:39.709904Z" name="S2rpm" sequence="97" subType="ACTUAL">UNAVAILABLE</RotaryVelocity>
+          <Load dataItemId="Mazak03-S2_3" timestamp="2019-11-15T15:43:39.709904Z" name="S2load" sequence="98">UNAVAILABLE</Load>
+          <Temperature dataItemId="Mazak03-S2_4" timestamp="2019-11-15T15:43:39.709904Z" name="S2temp" sequence="99">UNAVAILABLE</Temperature>
+        </Samples>
+        <Condition>
+          <Unavailable dataItemId="Mazak03-S2_5" timestamp="2019-11-15T15:43:39.709904Z" name="S2load_cond" sequence="100" type="LOAD"/>
+          <Unavailable dataItemId="Mazak03-S2_6" timestamp="2019-11-15T15:43:39.709904Z" name="S2temp_cond" sequence="101" type="TEMPERATURE"/>
+        </Condition>
+      </ComponentStream>
+      <ComponentStream component="Rotary" name="S" componentId="Mazak03-S_1">
+        <Samples>
+          <RotaryVelocity dataItemId="Mazak03-S_2" timestamp="2019-11-15T15:43:39.709904Z" name="Srpm" sequence="102" subType="ACTUAL">UNAVAILABLE</RotaryVelocity>
+          <Load dataItemId="Mazak03-S_3" timestamp="2019-11-15T15:43:39.709904Z" name="S1load" sequence="103">UNAVAILABLE</Load>
+          <Temperature dataItemId="Mazak03-S_4" timestamp="2019-11-15T15:43:39.709904Z" name="Stemp" sequence="104">UNAVAILABLE</Temperature>
+        </Samples>
+        <Condition>
+          <Unavailable dataItemId="Mazak03-S_5" timestamp="2019-11-15T15:43:39.709904Z" name="Sload_cond" sequence="105" type="LOAD"/>
+          <Unavailable dataItemId="Mazak03-S_6" timestamp="2019-11-15T15:43:39.709904Z" name="Stemp_cond" sequence="106" type="TEMPERATURE"/>
+        </Condition>
+      </ComponentStream>
+      <ComponentStream component="Linear" name="X" componentId="Mazak03-X_1">
+        <Samples>
+          <Position dataItemId="Mazak03-X_2" timestamp="2019-11-15T15:43:39.709904Z" name="Xabs" sequence="107" subType="ACTUAL">UNAVAILABLE</Position>
+          <Load dataItemId="Mazak03-X_4" timestamp="2019-11-15T15:43:39.709904Z" name="Xload" sequence="109">UNAVAILABLE</Load>
+          <AxisFeedrate dataItemId="Mazak03-X_5" timestamp="2019-11-15T15:43:39.709904Z" name="Xfrt" sequence="110">UNAVAILABLE</AxisFeedrate>
+        </Samples>
+        <Condition>
+          <Unavailable dataItemId="Mazak03-X_3" timestamp="2019-11-15T15:43:39.709904Z" name="Xtravel" sequence="108" type="POSITION"/>
+        </Condition>
+      </ComponentStream>
+      <ComponentStream component="Linear" name="Z" componentId="Mazak03-Z_1">
+        <Samples>
+          <Position dataItemId="Mazak03-Z_2" timestamp="2019-11-15T15:43:39.709904Z" name="Zabs" sequence="111" subType="ACTUAL">UNAVAILABLE</Position>
+          <Load dataItemId="Mazak03-Z_4" timestamp="2019-11-15T15:43:39.709904Z" name="Zload" sequence="113">UNAVAILABLE</Load>
+          <AxisFeedrate dataItemId="Mazak03-Z_5" timestamp="2019-11-15T15:43:39.709904Z" name="Zfrt" sequence="114">UNAVAILABLE</AxisFeedrate>
+        </Samples>
+        <Condition>
+          <Unavailable dataItemId="Mazak03-Z_3" timestamp="2019-11-15T15:43:39.709904Z" name="Ztravel" sequence="112" type="POSITION"/>
+        </Condition>
+      </ComponentStream>
+      <ComponentStream component="Axes" name="base" componentId="Mazak03-base_1">
+        <Condition>
+          <Unavailable dataItemId="Mazak03-base_2" timestamp="2019-11-15T15:43:39.709904Z" name="servo_cond" sequence="115" type="ACTUATOR"/>
+        </Condition>
+      </ComponentStream>
+      <ComponentStream component="Controller" name="controller" componentId="Mazak03-controller_1">
+        <Events>
+          <PalletNumber dataItemId="Mazak03-controller_5" timestamp="2019-11-15T15:43:39.709904Z" name="pallet_num" sequence="119">UNAVAILABLE</PalletNumber>
+        </Events>
+        <Condition>
+          <Unavailable dataItemId="Mazak03-controller_2" timestamp="2019-11-15T15:43:39.709904Z" name="comms_cond" sequence="116" type="COMMUNICATIONS"/>
+          <Unavailable dataItemId="Mazak03-controller_3" timestamp="2019-11-15T15:43:39.709904Z" name="logic_cond" sequence="117" type="LOGIC_PROGRAM"/>
+          <Unavailable dataItemId="Mazak03-controller_4" timestamp="2019-11-15T15:43:39.709904Z" name="system_cond" sequence="118" type="SYSTEM"/>
+        </Condition>
+      </ComponentStream>
+      <ComponentStream component="Coolant" name="coolant" componentId="Mazak03-coolant_1">
+        <Condition>
+          <Unavailable dataItemId="Mazak03-coolant_2" timestamp="2019-11-15T15:43:39.709904Z" name="coolant_pres" sequence="120" type="PRESSURE"/>
+          <Unavailable dataItemId="Mazak03-coolant_3" timestamp="2019-11-15T15:43:39.709904Z" name="coolant_temp" sequence="121" type="TEMPERATURE"/>
+          <Unavailable dataItemId="Mazak03-coolant_4" timestamp="2019-11-15T15:43:39.709904Z" name="coolant_level" sequence="122" type="LEVEL"/>
+        </Condition>
+      </ComponentStream>
+      <ComponentStream component="Electric" name="electric" componentId="Mazak03-electric_1">
+        <Events>
+          <PowerState dataItemId="Mazak03-electric_2" timestamp="2019-11-15T15:43:39.709904Z" name="power" sequence="124">UNAVAILABLE</PowerState>
+        </Events>
+        <Condition>
+          <Unavailable dataItemId="Mazak03-electric_3" timestamp="2019-11-15T15:43:39.709904Z" name="electric_temp" sequence="125" type="TEMPERATURE"/>
+        </Condition>
+      </ComponentStream>
+      <ComponentStream component="Hydraulic" name="hydraulic" componentId="Mazak03-hydraulic_1">
+        <Condition>
+          <Unavailable dataItemId="Mazak03-hydraulic_2" timestamp="2019-11-15T15:43:39.709904Z" name="hydra_cond" sequence="126" type="PRESSURE"/>
+        </Condition>
+      </ComponentStream>
+      <ComponentStream component="Path" name="path" componentId="Mazak03-path_1">
+        <Samples>
+          <AccumulatedTime dataItemId="Mazak03-path_14" timestamp="2019-11-15T15:43:39.709904Z" name="auto_time" sequence="131" subType="x:AUTO">UNAVAILABLE</AccumulatedTime>
+          <AccumulatedTime dataItemId="Mazak03-path_15" timestamp="2019-11-15T15:43:39.709904Z" name="total_time" sequence="132" subType="x:TOTAL">UNAVAILABLE</AccumulatedTime>
+          <AccumulatedTime dataItemId="Mazak03-path_16" timestamp="2019-11-15T15:43:39.709904Z" name="cut_time" sequence="133" subType="x:CUT">UNAVAILABLE</AccumulatedTime>
+          <PathFeedrate dataItemId="Mazak03-path_7" timestamp="2019-11-15T15:43:39.709904Z" name="Fact" sequence="150" subType="ACTUAL">UNAVAILABLE</PathFeedrate>
+        </Samples>
+        <Events>
+          <Execution dataItemId="Mazak03-path_10" timestamp="2019-11-15T15:43:39.709904Z" name="execution" sequence="127">UNAVAILABLE</Execution>
+          <ControllerMode dataItemId="Mazak03-path_11" timestamp="2019-11-15T15:43:39.709904Z" name="mode" sequence="128">UNAVAILABLE</ControllerMode>
+          <ProgramComment dataItemId="Mazak03-path_12" timestamp="2019-11-15T15:43:39.709904Z" name="program_cmt" sequence="129">UNAVAILABLE</ProgramComment>
+          <ProgramComment dataItemId="Mazak03-path_13" timestamp="2019-11-15T15:43:39.709904Z" name="subprogram_cmt" sequence="130" subType="x:SUB_PROGRAM">UNAVAILABLE</ProgramComment>
+          <RotaryVelocityOverride dataItemId="Mazak03-path_2" timestamp="2019-11-15T15:43:39.709904Z" name="Sovr" sequence="137">UNAVAILABLE</RotaryVelocityOverride>
+          <ToolAssetId dataItemId="Mazak03-path_25" timestamp="2019-11-15T15:43:39.709904Z" name="Tool_number" sequence="143">UNAVAILABLE</ToolAssetId>
+          <ToolGroup dataItemId="Mazak03-path_26" timestamp="2019-11-15T15:43:39.709904Z" name="Tool_group" sequence="144">UNAVAILABLE</ToolGroup>
+          <ToolSuffix dataItemId="Mazak03-path_27" timestamp="2019-11-15T15:43:39.709904Z" name="Tool_suffix" sequence="145">UNAVAILABLE</ToolSuffix>
+          <Program dataItemId="Mazak03-path_3" timestamp="2019-11-15T15:43:39.709904Z" name="program" sequence="146">UNAVAILABLE</Program>
+          <Program dataItemId="Mazak03-path_4" timestamp="2019-11-15T15:43:39.709904Z" name="subprogram" sequence="147" subType="x:SUB">UNAVAILABLE</Program>
+          <Line dataItemId="Mazak03-path_5" timestamp="2019-11-15T15:43:39.709904Z" name="line" sequence="148">UNAVAILABLE</Line>
+          <Unit dataItemId="Mazak03-path_6" timestamp="2019-11-15T15:43:39.709904Z" name="unitNum" sequence="149">UNAVAILABLE</Unit>
+          <PathFeedrateOverride dataItemId="Mazak03-path_8" timestamp="2019-11-15T15:43:39.709904Z" name="Frapidovr" sequence="151" subType="RAPID">UNAVAILABLE</PathFeedrateOverride>
+          <PathFeedrateOverride dataItemId="Mazak03-path_9" timestamp="2019-11-15T15:43:39.709904Z" name="Fovr" sequence="152" subType="PROGRAMMED">UNAVAILABLE</PathFeedrateOverride>
+          <SequenceNumber dataItemId="Mazak03-path_95" timestamp="2019-11-15T15:43:39.709904Z" name="sequenceNum" sequence="153">UNAVAILABLE</SequenceNumber>
+          <PartCount dataItemId="Mazak03-path_96" timestamp="2019-11-15T15:43:39.709904Z" name="PartCountAct" sequence="154">UNAVAILABLE</PartCount>
+        </Events>
+        <Condition>
+          <Unavailable dataItemId="Mazak03-path_17" timestamp="2019-11-15T15:43:39.709904Z" name="motion_cond" sequence="134" type="MOTION_PROGRAM"/>
+          <Unavailable dataItemId="Mazak03-path_18" timestamp="2019-11-15T15:43:39.709904Z" name="motion_cond2" sequence="135" subType="x:MOTION_PROGRAM_2" type="MOTION_PROGRAM"/>
+          <Unavailable dataItemId="Mazak03-path_19" timestamp="2019-11-15T15:43:39.709904Z" name="motion_cond3" sequence="136" subType="x:MOTION_PROGRAM_3" type="MOTION_PROGRAM"/>
+          <Unavailable dataItemId="Mazak03-path_20" timestamp="2019-11-15T15:43:39.709904Z" name="motion_cond4" sequence="138" subType="x:MOTION_PROGRAM_4" type="MOTION_PROGRAM"/>
+          <Unavailable dataItemId="Mazak03-path_21" timestamp="2019-11-15T15:43:39.709904Z" name="path_system" sequence="139" type="SYSTEM"/>
+          <Unavailable dataItemId="Mazak03-path_22" timestamp="2019-11-15T15:43:39.709904Z" name="path_system2" sequence="140" subType="x:SYSTEM_1" type="SYSTEM"/>
+          <Unavailable dataItemId="Mazak03-path_23" timestamp="2019-11-15T15:43:39.709904Z" name="path_system3" sequence="141" subType="x:SYSTEM_2" type="SYSTEM"/>
+          <Unavailable dataItemId="Mazak03-path_24" timestamp="2019-11-15T15:43:39.709904Z" name="path_system4" sequence="142" subType="x:SYSTEM_3" type="SYSTEM"/>
+        </Condition>
+      </ComponentStream>
+      <ComponentStream component="Pneumatic" name="pneumatic" componentId="Mazak03-pneumatic_1">
+        <Condition>
+          <Unavailable dataItemId="Mazak03-pneumatic_2" timestamp="2019-11-15T15:43:39.709904Z" name="pneu_cond" sequence="155" type="PRESSURE"/>
+        </Condition>
+      </ComponentStream>
+    </DeviceStream>
+  </Streams>
+</MTConnectStreams>
